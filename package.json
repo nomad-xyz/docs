@@ -1,0 +1,17 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  },
+  "author": "Erin Hales",
+  "license": "Apache 2.0",
+  "homepage": "https://github.com/nomad-xyz/nomad-monorepo",
+  "dependencies": {
+    "vitepress": "^0.20.1"
+  }
+}
