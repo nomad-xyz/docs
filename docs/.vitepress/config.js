@@ -28,7 +28,8 @@ module.exports = {
 
 function getHomeSidebar() {
   return [
-    { text: 'What is Nomad?', link: '/' }
+    { text: 'What is Nomad?', link: '/' },
+    { text: 'Brand Kit', link: '/brand-kit.html' },
   ]
 }
 
