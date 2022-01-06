@@ -10,7 +10,7 @@ lang: en-US
   <link rel="stylesheet" href="/brand-kit.css"/>
 </head>
 <img src="/Logo-Black.svg" alt="Nomad Black" class="logo logo--black"/>
-<img src="/Logo-white.svg" alt="Nomad White" class="logo logo--white"/>
+<img src="/Logo-White.svg" alt="Nomad White" class="logo logo--white"/>
 
 <a href="/nomad-logo-assets.zip" download class="download">
   <h3 class="download__text">Download</h3>
