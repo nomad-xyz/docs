@@ -3,6 +3,10 @@ module.exports = {
   title: 'Nomad',
   description: 'Documentation',
 
+  head: [
+    ['link', { rel: 'icon', href: `/favicon.png` }]
+  ],
+
   themeConfig: {
     // repo: 'https://github.com/nomad-xyz/nomad-monorepo',
     docsDir: 'docs',
