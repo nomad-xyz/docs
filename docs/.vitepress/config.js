@@ -61,8 +61,8 @@ function getIntegrationsSidebar() {
         { text: 'Token Bridge xApp', link: '/dev/token-bridge.html' },
         { text: 'Governance', link: '/dev/governance.html'},
         { text: 'Upgrade Setup', link: '/dev/upgrade-setup.html'},
-        { text: 'Agent Operations', link: '/dev/agent-operations.html'},
-        { text: 'Agent Development', link: '/dev/agent-development.html'}
+        { text: 'Deploy the Contracts', link: '/dev/contract-deployment.html'},
+        { text: 'Off-Chain Agents', link: '/dev/agents/'},
       ]
     }, {
       text: 'Developer Resources',

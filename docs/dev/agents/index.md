@@ -7,3 +7,4 @@ lang: en-US
 
 * [Agent Development](./agent-development.md) - How to Contribute to the Agent Codebase
 * [Agent Operations](./agent-operations.md) - How to Run Agents in Production 
+* [The Keymaster](./the-keymaster.md) - Tooling for Agent Wallets
