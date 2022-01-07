@@ -6,7 +6,7 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve --port 8000 docs"
   },
   "author": "Erin Hales",
   "license": "Apache 2.0",

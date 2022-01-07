@@ -64,29 +64,61 @@ At the outset, the Nomad team will have full control over agent keys, and any co
 
 ### Provision KMS Keys
 
-There exists a script in this repository (`rust/provision_kms_keys.py`) that facilitates KMS key provisioning for agent roles.
+There exists a script in the monorepo [(`rust/provision_kms_keys.py`)](https://github.com/nomad-xyz/nomad-monorepo/blob/main/rust/provision_kms_keys.py) that facilitates KMS key provisioning for agent roles.
 
-The script will produce a single set of keys per "environment." Where an __environment__ is a logical set of smart contract deployments. By default there are two environments configured, `staging` and `production` where `staging` is testnet deployments of the contracts and `production` corresponds to mainnet deployments.
+The script will produce a single set of keys per "environment." Where an __environment__ is a logical set of smart contract deployments, as documented [here](#deployment-environments). By default there are two environments configured, `staging` and `production`.
 
-The current strategy, in order to reduce complexity, is to use the same keys for transaction signing on both Celo and Ethereum networks. Should you desire, the key names to be provisioned can be modified such that the script creates unique keys per-network. Ex:
+#### Keys Explained
 
+**Transaction Signers**
+
+One signer key should be provisioned for each agent per-network. These keys are used to sign transactions on the respective networks Nomad is deployed to.
+
+**Attestation Signers**
+
+One additional key is provisioned for both the Watcher and Updater Agents. The Updater uses its key to sign updates to its assigned Home contract, while the Watcher uses its key to sign fraud proofs when it observes the Updater commiting fraud. 
+
+Note: Attestation signer addresses are used as input to the contract deployment process. They can be configured in the `nomad-deploy` package [like so](https://github.com/nomad-xyz/nomad-monorepo/blob/main/typescript/nomad-deploy/config/testnets/kovan.ts#L28-L30). 
+
+You may configure the script to generate arbitrary signer keys on a per-environment basis. 
 ```python
 # Agent Keys
-required_keys = [
-  "watcher-signer-alfajores",
-  "watcher-attestation-alfajores",
-  "watcher-signer-kovan",
-  "watcher-attestation-kovan",
-  "updater-signer-alfajores",
-  "updater-attestation-alfajores",
-  "updater-signer-kovan",
-  "updater-attestation-kovan",
-  "processor-signer-alfajores",
-  "processor-signer-kovan",
-  "relayer-signer-alfajores",
-  "relayer-signer-kovan"
-]
+agent_keys = {
+    "staging": [
+        "watcher-signer",
+        "watcher-attestation",
+        "updater-signer",
+        "updater-attestation",
+        "processor-signer",
+        "relayer-signer",
+        "kathy-signer"
+    ],
+    "production": [
+        "watcher-signer",
+        "watcher-attestation",
+        "updater-signer",
+        "updater-attestation",
+        "processor-signer",
+        "relayer-signer",
+    ]
+}
 ```
+
+Additionally, the supported networks for each environment are configured below. 
+```
+networks = {
+    "production": [
+        "ethereum",
+        "moonbeam",
+        "evmos"
+    ],
+    "staging": [
+        "moonbasealpha",
+        "kovan"    
+    ]
+}
+```
+
 
 #### Run the Key Provisioning Script
 
@@ -219,17 +251,9 @@ The following sequence describes how to set up IAM policies staging and producti
 
 ## Funding Addresses
 
-Each agent should be configured with a unique wallet to be used to signing transactions and paying gas. This section describes the process of funding these signer wallets.
+Each agent should be configured with a unique wallet to be used to signing transactions and paying gas. In order to automate the process of monitoring and topping up agent wallets, the Nomad core team built a CLI tool called [The Keymaster](the-keymaster.md). 
 
-Note: It is currently inadvisable to to run multiple Agent setups with the same set of Transaction Signers.
-
-### Steps
-
-1. Generate KMS keys using instructions from the previous section.
-2. Enumerate Signer Addresses via the table included as part of the output of `provision_kms_keys.py`, or via whatever method you used to generate keys.
-3. Send individual funding transactions to each address
-    - Note: 500 ETH should be sufficient for testnet addresses.
-4. Edit deployment config to match new signers
+The Keymaster, upon configuration, enables the manual one-off topping up of agent wallets on an arbitrary number of netorks. Additionally, it is capable of running this functionality as a service, topping up accounts on an interval and exposing prometheus metrics about the addresses it is monitoring for use in dashboards. 
 
 ## Self-Service Proofs in S3
 
