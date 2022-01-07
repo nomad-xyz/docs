@@ -5,7 +5,7 @@ lang: en-US
 
 # Deploying Dev Setup
 
-This section goes through the steps of adding a new development network to `nomad-deploy` and deploying a new set of dev contracts. If you will not be adding a new network, please skip to [Deploying the Contracts to Dev](#deploying-the-contracts-to-dev). If you are looking to deploy a new network to the production setup, please refer to [Production Contract Deployment](docs.nomad.xyz/dev/prod-contract-deploy.html).
+This section goes through the steps of adding a new development network to `nomad-deploy` and deploying a new set of dev contracts. If you will not be adding a new network, please skip to [Deploying the Contracts to Dev](#deploying-the-contracts-to-dev). If you are looking to deploy a new network to the production setup, please refer to the separate page on deploying new contracts to production.
 
 ## Add a New Network Config
 
