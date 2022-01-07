@@ -84,3 +84,11 @@ $ npm run deploy-<your_script_folder_name>-bridge
 If all goes according to plan, you will have a new folder at `rust/config/<timestamp>` containing JSON files that are used by the Off-Chain Agents. Please rename this folder appropriately (`development` if this will become the new dev setup). When committed to the monorepo, the config files are automatically bundled into the resultant Agent docker image in CI.
 
 Note: Deployment environments may be overridden by replacing the environment's config folder with the contents of your new timestamped configuration.
+
+## Updating Nomad SDK Dev Addresses
+
+If your newly deployed setup will become the new dev setup, you will need to adjust the hardcoded domains, indexing parameters, and addresses in the Nomad SDK. Go to `typescript/nomad-sdk/src/nomad/domains/dev.ts`. For each `NomadDomain` object:
+
+1. Update the indexing parameters (`blocks` and `from`) with the `chunk` and `from` fields from `rust/config/development/<network>_config.json`.
+2. Replace all addresses with those in the the newly outputted config file `rust/config/development/<network>_contracts.json`. For the home and replica addresses, use the _proxy_ addresses.
+3. If you deployed a new network that has not been seen before, add a new `NomadDomain` object and fill it with the correct fields.
