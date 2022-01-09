@@ -105,7 +105,7 @@ agent_keys = {
 ```
 
 Additionally, the supported networks for each environment are configured below. 
-```
+```python
 networks = {
     "production": [
         "ethereum",
