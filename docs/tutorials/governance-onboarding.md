@@ -16,6 +16,17 @@ At a high level, there are several steps you must complete in order to be fully 
 - Share your address, message signature, and contact information with the Nomad Core Team
 - Share your message signature with the community via a public channel
 
+## Governance Points of Contact
+
+If you have any questions about the Nomad governance process, please communicate with: 
+
+- Pranay Mohan
+  - Telegram: @pranaymohan
+- Anna Carroll
+  - Telegram: @annascarroll
+- Good Morning Nomad
+  - gm@nomad.xyz
+
 ## Generate an Address
 
 Depending on your hardware wallet, the steps could be slightly different. Here's some quick links for various common wallets: 
@@ -28,7 +39,7 @@ Next, in order to signal your ownership and control over your Governance Signer,
 
 ### Message Options
 
-You are free to choose your favorite Nomad-related message from the below list. Nothing here suit your fancy? Reach out to your Point of Contact on the Nomad Core Team and we'd be happy to facilitate the use of a personalized message. 
+You are free to choose your favorite Nomad-related message from the below list. Nothing here suit your fancy? Reach out to a Point of Contact on the Nomad Core Team and we'd be happy to facilitate the use of a personalized message. 
 
 - I am a #MadLad!
 - I am a #MadLass! 
@@ -89,7 +100,7 @@ Here's what the output of your signature should look like:
 
 ## Share with the Nomad Core Team
 
-Great! You've signed the message with your new governance signer key, now it's time to share this data with the Nomad Core Team. We will be publishing all of the signatures as well as information that identifies each signer in order to bolster confidence that the Nomad protocol governance is in good hands. 
+Great! You've signed the message with your new governance signer key, now it's time to share this data with the Nomad Core Team. We will be publishing all of the signatures as well as information that identifies each signer in order to bolster confidence that Nomad protocol governance is in good hands. 
 
 We request the following information: 
 - Twitter Handle
