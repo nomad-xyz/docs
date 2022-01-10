@@ -69,6 +69,10 @@ function getIntegrationsSidebar() {
           text: "Deploy Contracts to Dev",
           link: "/dev/dev-contract-deployment.html",
         },
+        {
+          text: "Deploy Contracts to Prod",
+          link: "/dev/prod-contract-deployment.html",
+        },
         { text: "Off-Chain Agents", link: "/dev/agents/" },
       ],
     },
