@@ -57,13 +57,13 @@ Once you have navigated to the `Agents` dashboard, copy-paste the regression tim
 
 Once we've narrowed our time window, let's look at the processor `next_message_nonce` metric. This metric tracks what message a given processor is currently on for each channel. The `next_message_nonce` should be moving up and to the right if all is healthy. In the highlighted region, however, it looks it looks like the Moonbase processor metric stopped being reported.
 
-![Find Agent Regression](../public/../../public/tutorials/debug-agents/agents-more-zoom.png)
+![Zoom Agent Regression](../public/../../public/tutorials/debug-agents/agents-no-zoom.png)
 
 <br>
 
 Lets zoom in even more to see the discontinued reporting.
 
-![Zoom Agent Regression](../public/../../public/tutorials/debug-agents/agents-more-zoom.png)
+![Zoom Agent Regression](../public/../../public/tutorials/debug-agents/agents-regression-zoom.png)
 
 <br>
 
