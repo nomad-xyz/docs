@@ -9,7 +9,7 @@ lang: en-US
 
 Bridging assets across chains using Nomad should be intuitive and easy with the Nomad GUI. In this tutorial, we will walk through the steps required to bridge your assets.
 
-Please find our bridge GUI at app.nomad.xyz.
+Please find our bridge GUI at [app.nomad.xyz](https://app.nomad.xyz/).
 
 Connect to Metamask:
 
