@@ -175,3 +175,39 @@ Simple |  
 The benefit of Nomad is that the broadcast channel allows for a single-producer, multi-consumer model. This ensures that 1 accumulator can communicate with any number of receiving chains. It’s also much cheaper than other options, allowing updates and proofs to cost <100k gas and be checked by only 1 signature. With Nomad, one-solution fits all meaning that constraints on receiving chains are minimal (1 hash function + 1 signature check). There is no implementation or security difference between Proof of Stake and Proof of Work chains.  There is also many fewer LoC than a Relay, much lower design maintenance overhead, and much less expertise required to maintain and operate.
 
 We’ve been careful to address all concerns with the Nomad system and have designed solutions that allow for optimal speed, cost, and security of the network. For example, we rely on fraud publication rather than fraud proofs to improve the speed and cost of sending messages. In this security model, any potential fraud is disincentivized and costly, and all participants will always learn of any potential fraud with plenty of time to mitigate harm.
+
+## Nomad Governance
+
+Nomad will roll out its finalized governance composition in February 2022. Chains like Moonbeam plan to launch Gnosis Safe some time after launching EVM compatibility. Until Gnosis is launched and the final Nomad governance signers are selected, Nomad will be deployed with the following signers:
+
+### Governor
+
+[Etherscan](https://etherscan.io/address/0x93277b8f5939975b9e6694d5fd2837143afbf68a), [Gnosis Safe](https://gnosis-safe.io/app/eth:0x93277b8f5939975b9E6694d5Fd2837143afBf68A/settings/owners)
+
+**Policy:** 2 of 4 - of the four total signers, two signatures are required to execute a transaction
+
+**Signers:**
+- Layne Haber (Co-Founder, Connext): `0xC69b66cc2811B509829448FBFfb2553c4CBb627e`
+- Min Teo (Managing Partner, Consensys Mesh):	`0x9bdD76b2a69Db43Fa695a10f5977b8FD891225f3`
+- Pranay Mohan (CEO, Nomad):	`0xab0614cE8d53ea2c67B87f8ad4d8Fac7A4a516e5`
+- Anna Carroll (Protocol Lead, Nomad):	`0x25270d2e6980C5b343C4866Aea904a9A9bCA733F`
+
+----
+### Ethereum Recovery Manager
+
+[Etherscan](https://etherscan.io/address/0xda2f881f7f4e9d2b9559f97c7670472a85c1986a), [Gnosis Safe](https://gnosis-safe.io/app/eth:0xda2f881f7f4e9d2b9559f97c7670472a85c1986a/settings/owners)
+
+**Policy:** 2 of 3 - of the three total signers, two signatures are required to execute a transaction
+
+**Signers:**
+- Eli Krenzke	(Researcher, Polychain Capital): `0x347Ae1a35BED71BB796A5279CD85FED964468aE9`
+- Barbara Liau (COO, Nomad): `0xDE9cfb1216889Dee0cAB8afB04c63911427659E4`
+- Conner Swann (Senior SRE, Nomad): `0xea24Ac04DEFb338CA8595C3750E20166F3b4998A`
+
+----
+### Moonbeam Recovery Manager
+
+**Policy:** 1 of 1 EOA
+
+**Signers:**
+- Conner Swann (Senior SRE, Nomad): `0xea24Ac04DEFb338CA8595C3750E20166F3b4998A`
