@@ -38,6 +38,12 @@ function getHomeSidebar() {
 function getBridgeSidebar() {
   return [
     { text: "Getting Started", link: "/bridge/index.html" },
+    {
+      text: "Resources",
+      children: [
+        { text: "Deployed Tokens", link: "/bridge/deployed-tokens.html" },
+      ],
+    },
     { text: "FAQs", link: "/bridge/faq.html" },
     {
       text: "Ways to Bridge Using Nomad",
