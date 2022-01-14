@@ -5,11 +5,13 @@ lang: en-US
 
 # What is the Nomad Protocol?
 
-Nomad is an implementation and extension of the [Optics protocol](https://github.com/celo-org/celo-monorepo) (OPTimistic Interchain Communication). It is a new design for radically cheaper cross-chain communication without header verification. We expect operating Nomad to cut 90% of gas costs compared to a traditional header relay. To accomplish this, we took inspiration from optimistic systems (a la Optimistic Roll-ups). Nomad features many of the features we prize in an optimistic mechanism, like public verification, low gas fees, broad participation, but has a slightly different security model.
+Nomad is a new design for radically cheaper cross-chain communication without header verification. We expect operating Nomad to cut 90% of gas costs compared to a traditional header relay. To accomplish this, we took inspiration from optimistic systems (a la Optimistic Roll-ups). Nomad features many of the features we prize in an optimistic mechanism, like public verification, low gas fees, broad participation, but has a slightly different security model.
 
 Nomad will form the base layer of a cross-chain communication network that provides fast, cheap communication for all smart contract chains and rollups. It relies only on widely-available cryptographic primitives (unlike header relays), has a latency of a few hours (rather than an ORU’s one week latency), and imposes only about 120,000 gas overhead on message senders.
 
-Nomad has been designed for ease of implementation in any blockchain that supports user-defined computations. We will provide initial Solidity implementations of the on-chain contracts, and Rust implementations of the off-chain system agents. We aim to follow up with Rust implementations of the on-chain contracts targeting Near and Solana later this year.
+Nomad has been designed for ease of implementation in any blockchain that supports user-defined computations. We will provide initial Solidity implementations of the on-chain contracts, and Rust implementations of the off-chain system agents.
+
+Nomad is an implementation and extension of the [Optics protocol](https://github.com/celo-org/celo-monorepo) (OPTimistic Interchain Communication).
 
 ## Building Intuition for Nomad
 
@@ -21,19 +23,19 @@ The sending (or “home”) chain produces a series of documents ("messages") th
 
 ## How does Nomad work?
 
-Nomad is patterned after optimistic systems. It sees an attestation of some data, and accepts it as valid after a timer elapses. While the timer is running, honest participants have a chance to respond to the attestation and/or submit fraud proofs. 
+Nomad is patterned after optimistic systems. It sees an attestation of some data, and accepts it as valid after a timer elapses. While the timer is running, honest participants have a chance to respond to the attestation and/or submit fraud proofs.
 
-Unlike most optimistic systems, Nomad spans multiple chains. The sending chain is the source of truth, and contains the “Home” contract where messages are enqueued. Messages are committed to in a merkle tree (the “message tree”). The root of this tree is notarized by the updater and relayed to the receiving chain in an “update”. Updates are signed by the updater. They commit to the previous root and a new root. 
+Unlike most optimistic systems, Nomad spans multiple chains. The sending chain is the source of truth, and contains the “Home” contract where messages are enqueued. Messages are committed to in a merkle tree (the “message tree”). The root of this tree is notarized by the updater and relayed to the receiving chain in an “update”. Updates are signed by the updater. They commit to the previous root and a new root.
 
 Any chain can maintain a “Replica” contract, which holds knowledge of the updater and the current root. Signed updates are held by the Replica, and accepted after a timeout. The Replica effectively replays a series of updates to reach the same root as the Home chain. Because the root commits to the message tree, once the root has been transmitted this way, the message can be proven and processed.
 
-This leaves open the possibility that the Updater signs a fraudulent update. Unlike an optimistic rollup, Nomad permits fraud. This is the single most important change to the security model. Importantly, fraud can always be proven to the Home contract on the sending chain. Because of this, the updater must submit a bonded stake on the sending chain. Fraud can always be proven on the sending chain, and the bond can be slashed as punishment. 
+This leaves open the possibility that the Updater signs a fraudulent update. Unlike an optimistic rollup, Nomad permits fraud. This is the single most important change to the security model. Importantly, fraud can always be proven to the Home contract on the sending chain. Because of this, the updater must submit a bonded stake on the sending chain. Fraud can always be proven on the sending chain, and the bond can be slashed as punishment.
 
-Unfortunately, certain types of fraud can't be objectively proven on the receiving chain; Replicas can't know which messages the home chain intended to send and therefore can't check message tree validity in all cases. However, if a message is falsified by an Updater and submitted to the Replica, that update is public. This means that any honest actor can prove this fraud on the original Home contract and cause slashing. There is no way to hide fraud. 
+Unfortunately, certain types of fraud can't be objectively proven on the receiving chain; Replicas can't know which messages the home chain intended to send and therefore can't check message tree validity in all cases. However, if a message is falsified by an Updater and submitted to the Replica, that update is public. This means that any honest actor can prove this fraud on the original Home contract and cause slashing. There is no way to hide fraud.
 
 In addition, because the Replica waits to process messages, Nomad guarantees that honest dapps can always prevent processing of dishonest messages. Fraud is always public knowledge before the fraudulent message is processed. In this sense, Nomad (like atomic swaps and other locally verified systems) includes a requirement for honest users to stay online. We have built a robust system for delegating this responsibility.
 
-All off-chain observers can be immediately convinced of fraud (as they can check the home chain). This means that the validity of a message sent by Nomad is not 100% guaranteed. 
+All off-chain observers can be immediately convinced of fraud (as they can check the home chain). This means that the validity of a message sent by Nomad is not 100% guaranteed.
 
 Instead, Nomad guarantees the following:
 
@@ -55,7 +57,7 @@ Nomad contains several on-chain and off-chain components. For convenience, we’
 
 ### Home
 
-The home contract is responsible for managing production of the message tree and holding custody of the updater bond. 
+The home contract is responsible for managing production of the message tree and holding custody of the updater bond.
 
 __It performs the following functions:__
 
@@ -69,7 +71,7 @@ __It performs the following functions:__
 
 ### Replica
 
-The replica contract is responsible for managing optimistic replication and dispatching messages to end recipients. 
+The replica contract is responsible for managing optimistic replication and dispatching messages to end recipients.
 
 __It performs the following functions:__
 
@@ -85,7 +87,7 @@ __It performs the following functions:__
 
 ### Updater
 
-The updater is responsible for signing attestations of new roots. 
+The updater is responsible for signing attestations of new roots.
 
 __It is an off-chain actor that does the following:__
 
@@ -95,7 +97,7 @@ __It is an off-chain actor that does the following:__
 
 ### Watcher
 
-The watcher observes the Updater's interactions with the Home contract (by watching the Home contract) and reacts to malicious or faulty attestations. It also observes any number of replicas to ensure the Updater does not bypass the Home and go straight to a replica. 
+The watcher observes the Updater's interactions with the Home contract (by watching the Home contract) and reacts to malicious or faulty attestations. It also observes any number of replicas to ensure the Updater does not bypass the Home and go straight to a replica.
 
 __It is an off-chain actor that does the following:__
 
@@ -108,7 +110,7 @@ __It is an off-chain actor that does the following:__
 
 ### Relayer
 
-The relayer forwards updates from the home to one or more replicas. 
+The relayer forwards updates from the home to one or more replicas.
 
 __It is an off-chain actor that does the following:__
 
@@ -119,7 +121,7 @@ __It is an off-chain actor that does the following:__
 
 ### Processor
 
-The processor proves the validity of pending messages and sends them to end recipients. 
+The processor proves the validity of pending messages and sends them to end recipients.
 
 __It is an off-chain actor that does the following:__
 
