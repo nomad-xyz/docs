@@ -19,8 +19,10 @@ The Nomad app at https://app.nomad.xyz supports the following assets:
 * GLMR
 * WGLMR
 * WBTC
+* FRAX
+* FXS
 
-We are actively adding more assets, so if any asset you want to bridge isn't listed, it may be soon!
+We are actively adding more assets. If you would like an asset listed, make your voice heard in the Nomad [Discord](https://discord.gg/RurtmJApqm)!!
 
 ### Do you have `<blank>` feature?
 
@@ -35,7 +37,7 @@ We deployed on Jan 11, 2022 🚀 and are adding new features and making updates 
 
 ### I bridged over my assets with `someOtherBridgeNotNomad`, why can’t I see them?
 
-Bridging assets is tricky business. The bridge that you use is important, because you are locking up your assets in a smart contract. Because each bridge deploys their own smart contract, this means that assets bridged using one Bridge A are not compatible with assets bridged using Bridge B, even though they started out with the same asset.
+Each bridge deploys their own token contracts, so assets bridged using one Bridge A are not compatible with assets bridged using Bridge B, even though they started out with the same original asset.
 
 If you want to bridge over with Nomad but you've already used another bridge, you'll need to bridge _back_ to the origin chain, and then bridge again with Nomad. This will get you back on track.
 
@@ -43,7 +45,7 @@ If you want to bridge over with Nomad but you've already used another bridge, yo
 
 Bridging using Nomad usually takes around 35 mins, but can be up to +60 mins depending on on- and off- chain activity (see our [docs on the Nomad architecture](../index.md) for more information).
 
-However, we've partnered with Connext to give users an option to have a faster cross-chain experience! For a small fee and one small extra step (you'll need to manually claim your transaction), you can use Connext to enable faster transfers--around 7-15 mins!
+However, we've partnered with Connext to give users an option to have a faster cross-chain experience! For a small fee, you can use Connext to enable faster transfers--around 7-15 mins!
 
 ### It's been longer than the estimated time--where are my tokens?
 
@@ -63,13 +65,13 @@ If you use Nomad to bridge your WETH back to Ethereum, you will receive WETH and
 ----
 ### What is your relationship with Connext?
 
-Nomad and Connext are complementary pieces that work together to provide a better cross-chain experience for users. Connext is an interoperability protocol that allows users to swap/transact over liquidity that already exists on the chain. Nomad is at its core protocol for passing generalized data between arbitrary chains, and the Nomad Bridge is an application built to pass specific kinds of messages (token bridge asset messages).
+Nomad and Connext are complementary pieces that work together to provide a better cross-chain experience for users. Connext is an interoperability protocol that allows users to swap/transact over liquidity that already exists on the chain. Nomad is at its core protocol for passing generalized data between arbitrary chains, and the Nomad Bridge is an application built to pass specific kinds of messages that allow you to bridge tokens.
 
-So, the first step in this partnership is to get assets over to the other chain. This is done by using the Nomad bridge. From there, Connext routers can setup cross-chain liquidity pools using the bridged assets. For a small fee, these liquidity pools allow users to make faster swaps, since the assets have already been bridged over.
+Connext routers set up cross-chain liquidity pools for Nomad assets. For a small fee, these liquidity pools allow users to make faster swaps, since the assets have already been bridged over.
 
 ### I bridged using Connext, where are my tokens?
 
-When you bridge with Connext, you'll need to manually claim your tokens after the transaction has processed. If for some reason the GUI isn't working, you can also go to `https://connext.io/tx/<txId>` to view and Claim your transaction.
+When you bridge with Connext, you'll need to manually claim your tokens after the transaction has processed. You can claim your transaction using the [Nomad bridge](https://app.nomad.xyz), or you can also use the Connext UI at `https://connext.io/tx/<txId>`
 
 ## Bridging to Ethereum
 ------
@@ -81,7 +83,7 @@ When you bridge back to Ethereum, you'll need to process the transaction manuall
 
 ### Why is gas estimate so high to get my funds on Ethereum?
 
-You need to submit a higher buffer for gas because the function that needs to be called to disperse funds, `proveAndProcess`, is permissionless. If there was no gas buffer, anyone could cancel your transaction by processing it with too-low gas. So the protocol specifies a gas buffer in order to submit the transaction, but in this case, a lot of that is not actually used.
+You need to submit a higher buffer for gas because the function that needs to be called to disperse funds, `proveAndProcess`, is permissionless. If there was no gas buffer, anyone could cancel your transaction by processing it with too-low gas. So the protocol specifies a gas buffer in order to submit the transaction, but in this case, the majority of the gas is not actually used.
 
 **In actuality, only about 1/5 of the estimated gas is used.**
 
@@ -93,14 +95,14 @@ You can also look through the [contract](https://etherscan.io/address/0x049b51e5
 
 ## General
 
-### Are there security issues if Nomad skips header verification?
+### What is Nomad's security model? How does it compare to other well-known models, such as header verification?
 
 Every cross-chain message passing system is going to have tradeoffs, and we've carefully considered how security is affected with design choices. Nomad adopts an optimistic mechanism inspired by optimistic roll-ups like Optimism and Arbitrum, which is a different approach than block header verification. You can read a little bit more about the benefits and tradeoffs of this kind of architecture in our [docs](https://docs.nomad.xyz/#benefits-and-trade-offs-of-the-nomad-architecture).
 
 ### Wen token?
 
-No. Nomad does not have a token at this time. If you hear any references to a Nomad token, they are definitely scams.
+Nomad does not have a token at this time. If you hear any references to a Nomad token, they are definitely scams.
 
-### What is nomWETH and madWETH?
+### What is madWETH?
 
-These are the same assets! Often times applications will prefix assets depending on the bridge that was used. Nomad assets are listed with either no prefix (WETH), the nom- prefix (nomWETH), or the mad- prefix (madWETH). We prefer to use no prefix or the mad- prefix and will kindly ask applications to change this for us, but sometimes there may be a delay in this change.
+These are the same assets! Often times applications will prefix assets depending on the bridge that was used. Nomad assets are listed with either no prefix (WETH), or the mad- prefix (madWETH). We prefer to use no prefix or the mad- prefix and will kindly ask applications to change this for us, but sometimes there may be a delay in this change.
