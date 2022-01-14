@@ -9,7 +9,7 @@ lang: en-US
 
 ### What assets are available to bridge? (updated 01/13/2022)
 
-The Nomad app at https://app.nomad.xyz supports the following assets:
+The Nomad app at https://app.nomad.xyz supports the following assets. For a complete list of tokens and their addresses see the [Deployed Tokens List](./deployed-tokens.md).
 
 * WETH
 * ETH
@@ -51,7 +51,7 @@ However, we've partnered with Connext to give users an option to have a faster c
 
 Ocassionally there are times where it takes longer to process a transaction. This could be due to on-chain activity, or a delay in agent processing.
 
-This could also be due to missing a step in the process, such as when sending assets back to Ethereum. You'll need to manually process the transaction. See [this answer](#why-is-gas-estimate-so-high-to-disperse-my-funds-to-ethereum).
+This could also be due to missing a step in the process, such as when sending assets back to Ethereum. You'll need to manually process the transaction. See [this answer](#why-is-gas-estimate-so-high-to-get-my-funds-on-ethereum).
 
 ### Do I get WETH or ETH?
 
