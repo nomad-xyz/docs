@@ -187,10 +187,10 @@ Nomad will roll out its finalized governance composition in February 2022. Chain
 **Policy:** 2 of 4 - of the four total signers, two signatures are required to execute a transaction
 
 **Signers:**
-- Layne Haber (Co-Founder, Connext): `0xC69b66cc2811B509829448FBFfb2553c4CBb627e`
-- Min Teo (Managing Partner, Consensys Mesh):	`0x9bdD76b2a69Db43Fa695a10f5977b8FD891225f3`
-- Pranay Mohan (CEO, Nomad):	`0xab0614cE8d53ea2c67B87f8ad4d8Fac7A4a516e5`
-- Anna Carroll (Protocol Lead, Nomad):	`0x25270d2e6980C5b343C4866Aea904a9A9bCA733F`
+- [Layne Haber](https://twitter.com/LayneHaber): `0xC69b66cc2811B509829448FBFfb2553c4CBb627e`
+- [Praneeth Srinkanti](https://twitter.com/bees_neeth):	`0x9bdD76b2a69Db43Fa695a10f5977b8FD891225f3`
+- [Pranay Mohan](https://twitter.com/pranaymohan):	`0xab0614cE8d53ea2c67B87f8ad4d8Fac7A4a516e5`
+- [Anna Carroll](https://twitter.com/annascarroll):	`0x25270d2e6980C5b343C4866Aea904a9A9bCA733F`
 
 ----
 ### Ethereum Recovery Manager
@@ -200,9 +200,9 @@ Nomad will roll out its finalized governance composition in February 2022. Chain
 **Policy:** 2 of 3 - of the three total signers, two signatures are required to execute a transaction
 
 **Signers:**
-- Eli Krenzke	(Researcher, Polychain Capital): `0x347Ae1a35BED71BB796A5279CD85FED964468aE9`
-- Barbara Liau (COO, Nomad): `0xDE9cfb1216889Dee0cAB8afB04c63911427659E4`
-- Conner Swann (Senior SRE, Nomad): `0xea24Ac04DEFb338CA8595C3750E20166F3b4998A`
+- [Eli Krenzke](https://twitter.com/eKRENZKE): `0x347Ae1a35BED71BB796A5279CD85FED964468aE9`
+- [Barbara Liau](https://twitter.com/barbaraliau): `0xDE9cfb1216889Dee0cAB8afB04c63911427659E4`
+- [Conner Swann](https://twitter.com/YourBuddyConner): `0xea24Ac04DEFb338CA8595C3750E20166F3b4998A`
 
 ----
 ### Moonbeam Recovery Manager
@@ -210,4 +210,4 @@ Nomad will roll out its finalized governance composition in February 2022. Chain
 **Policy:** 1 of 1 EOA
 
 **Signers:**
-- Conner Swann (Senior SRE, Nomad): `0xea24Ac04DEFb338CA8595C3750E20166F3b4998A`
+- [Conner Swann](https://twitter.com/YourBuddyConner): `0xea24Ac04DEFb338CA8595C3750E20166F3b4998A`
