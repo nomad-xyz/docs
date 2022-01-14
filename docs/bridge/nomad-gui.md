@@ -78,4 +78,4 @@ Once your transfer has completed, you should see the below display and your fund
 
 ## Fast Transfers with Connext
 
-Coming soon with [Connext](https://nxtp-docs.connext.network/) integration...
+Guide coming soon! [Connext](https://nxtp-docs.connext.network/) integration.
