@@ -93,4 +93,24 @@ Once your transfer has completed, you should see the below display and your fund
 
 ## Fast Transfers with Connext
 
+Fill out transfer details: connect wallet, select token, enter amount, select origin/destination networks and (optional) set destination address.
 
+Once the input is filled out and valid, the app will check if there is available liquidity via Connext.
+
+![Checking availability](../public/tutorials/bridge-gui/checking-connext.png)
+
+If there is, your screen will look like this. You may proceed with Connext or click "Use Nomad" to switch.
+
+![Connext available](../public/tutorials/bridge-gui/connext-available.png)
+
+Click "Preview Send" to see the estimated fees and receive amount. It will take approximately 6-8 seconds for the results to appear.
+
+![Calculating fee](../public/tutorials/bridge-gui/calculating-fees.png)
+
+Click `Send Tokens` and approve the transaction in Metamask!
+
+In a few minutes, you will see your transfer appear in a table below. Click "Claim" to submit a transaction to receive your funds on the destination chain.
+
+Click "View" to go to your transaction in the ConnextScan block explorer. Or you can visit `https://connextscan.io/tx/<yourtransactionhash>`.
+
+![Claim Connext funds](../public/tutorials/bridge-gui/connext-claim.png)
