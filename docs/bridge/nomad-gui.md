@@ -5,6 +5,17 @@ lang: en-US
 
 # Nomad Bridge GUI
 
+## Nomad vs Connext, which should I use?
+
+There are two options available to send funds through the GUI, Nomad and Connext. These are two distinct protocols that are complimentary to one another. We have partnered with Connext to provide an optimal experience for users!
+
+Nomad is a secure gas efficient cross-chain protocol that allows users to bridge funds between networks. This takes, on average, 35-60 minutes. There are no fees associated with Nomad, just pay gas! Connext provides liquidity pools for Nomad assets, meaning users can receive funds on the destination chain much faster (less than 10 minutes) for an additional fee. Nomad is advised for large transfers.
+
+Connext is not available for every asset and may not be available for larger sums. If it is available, we provide this option by default. If you would like to use Nomad instead, you can temporarily switch by clicking "Use Nomad" or you can toggle off "Enable Connext" in settings.
+
+![Switch to Nomad](../public/tutorials/bridge-gui/use-nomad.png)
+![Enables/Disable Connext](../public/tutorials/bridge-gui/enable-connext.png)
+
 ## Bridging Through Nomad
 
 Bridging assets across chains using Nomad should be intuitive and easy with the Nomad GUI. In this tutorial, we will walk through the steps required to bridge your assets.
@@ -48,6 +59,10 @@ Click `Bridge Tokens` and approve the transaction in Metamask:
 
 After approving the transaction, you will be taken to the transaction details page. Here, you will see the estimated time remaining for your transfer to complete. Please save your transaction hash for convenience. If you lose it, you can visit your wallet address on the block explorer of the origin network and find the transaction again.
 
+::: info
+You must return to the Transaction Page after bridging has concluded to pay for gas and complete your transfer. Nomad may cover the processing and gas fees for some chains.
+:::
+
 ![See Transaction Details](../public/tutorials/bridge-gui/tx-hash-page.png)
 
 <br>
@@ -58,7 +73,7 @@ You can expand the time estimate tab to track your transaction status by clickin
 
 <br>
 
-(Optional) If you navigated away from the GUI at any point and want to find your transfer's progress page again, visit [https://app.nomad.xyz/tx](https://app.nomad.xyz/tx) and enter your transfer's transaction hash.
+(Optional) If you navigated away from the GUI at any point and want to find your transfer's progress page again, visit [https://app.nomad.xyz/tx](https://app.nomad.xyz/tx) and enter the origin network and your transfer's transaction hash.
 
 ![Search Tx](../public/tutorials/bridge-gui/search-tx.png)
 
@@ -78,4 +93,24 @@ Once your transfer has completed, you should see the below display and your fund
 
 ## Fast Transfers with Connext
 
-Guide coming soon! [Connext](https://nxtp-docs.connext.network/) integration.
+Fill out transfer details: connect wallet, select token, enter amount, select origin/destination networks and (optional) set destination address.
+
+Once the input is filled out and valid, the app will check if there is available liquidity via Connext.
+
+![Checking availability](../public/tutorials/bridge-gui/checking-connext.png)
+
+If there is, your screen will look like this. You may proceed with Connext or click "Use Nomad" to switch.
+
+![Connext available](../public/tutorials/bridge-gui/connext-available.png)
+
+Click "Preview Send" to see the estimated fees and receive amount. It will take approximately 6-8 seconds for the results to appear.
+
+![Calculating fee](../public/tutorials/bridge-gui/calculating-fees.png)
+
+Click `Send Tokens` and approve the transaction in Metamask!
+
+In a few minutes, you will see your transfer appear in a table below. Click "Claim" to submit a transaction to receive your funds on the destination chain.
+
+Click "View" to go to your transaction in the ConnextScan block explorer. Or you can visit `https://connextscan.io/tx/<yourtransactionhash>`.
+
+![Claim Connext funds](../public/tutorials/bridge-gui/connext-claim.png)
