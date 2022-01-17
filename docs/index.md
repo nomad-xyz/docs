@@ -49,9 +49,7 @@ Instead, Nomad guarantees the following:
 
 Nomad contains several on-chain and off-chain components. For convenience, we’ll be referring to the Home and Replica as contracts, when in fact they are several contracts working together.
 
-
-<img width="638" alt="nomad-on-chain-components" src="https://user-images.githubusercontent.com/2653576/115467293-2463c380-a1e6-11eb-80be-348714044eb4.png"/>
-
+![Nomad Components](./public/Nomad-Architecture.png)
 
 ## On-chain (Contracts)
 
@@ -133,10 +131,6 @@ __It is an off-chain actor that does the following:__
 - Dispatch proven messages to end recipients
 
 ## How Nomad passes messages between chains
-
-
-<img width="951" alt="nomad-messages-between-chains" src="https://user-images.githubusercontent.com/2653576/115468191-925cba80-a1e7-11eb-85a6-032539a7004f.png"/>
-
 
 Nomad creates an authenticated data structure on a home chain, and relays updates to that data structure on any number of replicas. As a result, the home chain and all replicas will agree on the state of the data structure. By embedding data ("messages") in this data structure we can propagate it between chains with a high degree of confidence.
 

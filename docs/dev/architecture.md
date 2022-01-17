@@ -7,7 +7,7 @@ lang: en-US
 
 ## Components
 
-![Nomad Architecture Diagram](/Nomad-Architecture.png)
+![Nomad Architecture Diagram](./public/Nomad-Architecture.png)
 
 Nomad has several logical components:
 
