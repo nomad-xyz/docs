@@ -71,7 +71,7 @@ Connext routers set up cross-chain liquidity pools for Nomad assets. For a small
 
 ### I bridged using Connext, where are my tokens?
 
-When you bridge with Connext, you'll need to manually claim your tokens after the transaction has processed. You can claim your transaction using the [Nomad bridge](https://app.nomad.xyz), or you can also use the Connext UI at `https://connext.io/tx/<txId>`
+When you bridge with Connext, you'll need to manually claim your tokens after the transaction has processed. You can claim your transaction using the [Nomad bridge](https://app.nomad.xyz), or you can also use the Connext UI at `https://connextscan.io/tx/<txId>`
 
 ## Bridging to Ethereum
 ------
