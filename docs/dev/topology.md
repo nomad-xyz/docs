@@ -13,7 +13,7 @@ the network topology.
 Generally, Nomad follows a **Hub and Spoke** network topology. That is to say,
 one chain (Ethereum) is the logical hub of the Nomad network. We guarantee that
 all other chains have active channels to Ethereum. While connections between
-spokes may exist, we don't guarantee that they do
+spokes may exist, we don't guarantee that they do.
 
 Hub and Spoke topology has a number of advantages:
 
