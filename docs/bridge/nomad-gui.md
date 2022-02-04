@@ -85,7 +85,9 @@ Once your transfer has completed, you should see the below display and your fund
 
 <br>
 
-(Ethereum Destination Only) If you are sending to Ethereum, there is one additional processing step due to the high cost of processing transactions on Ethereum. You will see the following display and should click "Complete Transfer" and complete the Metamask transaction. After this, your funds should be at your destination on Ethereum!
+## Completing a Transfer (Ethereum Destination Only)
+
+If you are sending to Ethereum, there is one additional processing step due to the high cost of processing transactions on Ethereum. You will see the following display and should click "Complete Transfer" and complete the Metamask transaction. After this, your funds should be at your destination on Ethereum!
 
 ![Self Process](../public/tutorials/bridge-gui/self-process.png)
 
