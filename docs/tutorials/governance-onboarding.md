@@ -48,33 +48,33 @@ NOTE: The direct ledger integration on MyCrypto.com's Message Signature tool is 
 
 Select a wallet: 
 
-![Wallet Selection Modal](../public/tutorials/governance-signer/select-wallet.png)
+![Wallet Selection Modal](../tutorials/governance-signer/select-wallet.png)
 
 Connect to Metamask: 
 
-![Connect to Metamask](../public/tutorials/governance-signer/connect-to-metamask.png)
+![Connect to Metamask](../tutorials/governance-signer/connect-to-metamask.png)
 
 Confirm Address: 
 
-![Connect to Metamask](../public/tutorials/governance-signer/confirm-address.png)
+![Connect to Metamask](../tutorials/governance-signer/confirm-address.png)
 
 2. Sign Message 
 
 Now that your wallet is connected, we can use the MyCrypto UI to sign your choice of message from the above options. 
 
-![Sign a Message](../public/tutorials/governance-signer/sign-message.png)
+![Sign a Message](../tutorials/governance-signer/sign-message.png)
 
 Approve the signature in Metamask: 
 
-![Approve Signature in Metamask](../public/tutorials/governance-signer/approve-on-metamask.png)
+![Approve Signature in Metamask](../tutorials/governance-signer/approve-on-metamask.png)
 
 Approve the Signature on your Device: 
 
-![Approve Signature on Wallet](../public/tutorials/governance-signer/approve-on-device.png)
+![Approve Signature on Wallet](../tutorials/governance-signer/approve-on-device.png)
 
 Nice! You should now have a successful signature output in the MyCrypto UI: 
 
-![Signature Success](../public/tutorials/governance-signer/signature-success.png)
+![Signature Success](../tutorials/governance-signer/signature-success.png)
 
 Here's what the output of your signature should look like: 
 

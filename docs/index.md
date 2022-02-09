@@ -49,7 +49,7 @@ Instead, Nomad guarantees the following:
 
 Nomad contains several on-chain and off-chain components. For convenience, we’ll be referring to the Home and Replica as contracts, when in fact they are several contracts working together.
 
-![Nomad Components](./public/Nomad-Architecture.png)
+![Nomad Components](./Nomad-Architecture.png)
 
 ## On-chain (Contracts)
 

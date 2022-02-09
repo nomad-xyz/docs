@@ -11,10 +11,10 @@ module.exports = {
 
     nav: [
       { text: "Home", link: "/", activeMatch: "^/$|^/home/" },
-      { text: "Bridge", link: "/bridge/index.html", activeMatch: "^/bridge" },
+      { text: "Bridge", link: "/bridge/", activeMatch: "^/bridge" },
       {
         text: "Developer Resources",
-        link: "/dev/index.html",
+        link: "/dev/",
         activeMatch: "^/dev/",
       },
     ],
@@ -31,31 +31,31 @@ module.exports = {
 function getHomeSidebar() {
   return [
     { text: "What is Nomad?", link: "/" },
-    { text: "Brand Kit", link: "/brand-kit.html" },
+    { text: "Brand Kit", link: "/brand-kit" },
   ];
 }
 
 function getBridgeSidebar() {
   return [
-    { text: "Getting Started", link: "/bridge/index.html" },
+    { text: "Getting Started", link: "/bridge/" },
     {
       text: "Resources",
       children: [
-        { text: "Deployed Tokens", link: "/bridge/deployed-tokens.html" },
+        { text: "Deployed Tokens", link: "/bridge/deployed-tokens" },
       ],
     },
-    { text: "FAQs", link: "/bridge/faq.html" },
+    { text: "FAQs", link: "/bridge/" },
     {
       text: "Ways to Bridge Using Nomad",
       children: [
-        { text: "Nomad GUI", link: "/bridge/nomad-gui.html" },
+        { text: "Nomad GUI", link: "/bridge/" },
         {
           text: "Send Native Tokens Using Etherscan",
-          link: "/bridge/etherscan-native.html",
+          link: "/bridge/etherscan-native",
         },
         {
           text: "Send ERC-20 Tokens Using Etherscan",
-          link: "/bridge/etherscan.html",
+          link: "/bridge/etherscan",
         },
       ],
     },
@@ -67,17 +67,17 @@ function getIntegrationsSidebar() {
     {
       text: "Technical Docs",
       children: [
-        { text: "Nomad Architecture", link: "/dev/architecture.html" },
-        { text: "Token Bridge xApp", link: "/dev/token-bridge.html" },
-        { text: "Governance", link: "/dev/governance.html" },
-        { text: "Upgrade Setup", link: "/dev/upgrade-setup.html" },
+        { text: "Nomad Architecture", link: "/dev/architecture" },
+        { text: "Token Bridge xApp", link: "/dev/token-bridge" },
+        { text: "Governance", link: "/dev/governance" },
+        { text: "Upgrade Setup", link: "/dev/upgrade-setup" },
         {
           text: "Deploy Contracts to Dev",
-          link: "/dev/dev-contract-deployment.html",
+          link: "/dev/dev-contract-deployment",
         },
         {
           text: "Deploy Contracts to Prod",
-          link: "/dev/prod-contract-deployment.html",
+          link: "/dev/prod-contract-deployment",
         },
         { text: "Off-Chain Agents", link: "/dev/agents/" },
       ],
@@ -85,8 +85,8 @@ function getIntegrationsSidebar() {
     {
       text: "Developer Resources",
       children: [
-        { text: "SDK", link: "/dev/sdk.html" },
-        { text: "Writing a xApp", link: "/dev/xapps.html" },
+        { text: "SDK", link: "/dev/sdk" },
+        { text: "Writing a xApp", link: "/dev/xapps" },
       ],
     },
   ];
