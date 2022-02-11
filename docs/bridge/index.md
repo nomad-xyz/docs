@@ -14,6 +14,7 @@ Nomad is a new cross-chain protocol that is currently in a beta release phase. P
 * [Nomad Bridge](../index.md)
   * Nomad Web UIs
     * [Nomad GUI](./nomad-gui.md)
+    * [Testnet GUI](https://development.app.nomad.xyz)
   * Manually Using Etherscan
     * [Bridge Native Tokens via Etherscan](./etherscan-native.md)
     * [Bridge ERC-20 Tokens via Etherscan](./etherscan.md)

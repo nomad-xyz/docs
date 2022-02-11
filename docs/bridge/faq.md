@@ -61,6 +61,10 @@ If you use Connext to bridge your WETH back to Ethereum, you will receive ETH au
 
 If you use Nomad to bridge your WETH back to Ethereum, you will receive WETH and will need to unwrap it manually if you want ETH again.
 
+### Do you have a development/testnet site?
+
+Yes! It is available at [development.app.nomad.xyz](https://development.app.nomad.xyz)
+
 ## Connext + Nomad
 ----
 ### What is your relationship with Connext?
