@@ -106,3 +106,19 @@ Nomad does not have a token at this time. If you hear any references to a Nomad 
 ### What is madWETH?
 
 These are the same assets! Often times applications will prefix assets depending on the bridge that was used. Nomad assets are listed with either no prefix (WETH), or the mad- prefix (madWETH). We prefer to use no prefix or the mad- prefix and will kindly ask applications to change this for us, but sometimes there may be a delay in this change.
+
+### Why does my recently-bridged token have a funny name like `0006648936.eb48`?
+
+In order to avoid sending redundant data like the token name and symbol with every message, the first time a bridged ERC-20 Token representation is deployed, metadata is pulled from the originating chain after initial deployment.  This involves a round-trip between the replica and originating chain wherein data about name/symbol/decimals is synced. 
+
+This is expected behavior, and the explorer will update after a day or two. 
+
+### Why is the ERC-20 token placeholder name like that?
+
+`0006648936.eb48` is the Nomad domain ID for Ethereum and the last 4 letters of the token address on Ethereum
+
+`6648936 == 0x657468` -- the utf8 encoding of 'eth'
+
+USDC's address is `0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48`
+
+Note the `eb48` at the end.
