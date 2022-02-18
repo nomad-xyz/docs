@@ -28,6 +28,8 @@ This repository has several examples one can use to build understanding around C
 
 ### xApp Template
 
+**Important!** The template supported Solidity version is **<0.8**!
+
 [This is a template](https://github.com/nomad-xyz/nomad-monorepo/tree/main/solidity/nomad-xapps/contracts/xapp-template) provided by the Nomad team that shows the high-level components of an xApp, ready for one to fill in their own application logic and utilize an Nomad channel for cross-chain communication.
 
 To implement a xApp, define the actions you would like to execute across chains.
