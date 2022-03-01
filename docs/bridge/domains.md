@@ -55,6 +55,7 @@
 | Random ERC20  | rERC20 | `18`     | 0x2D997F0917Ce644B6d31303300913E17178F3F3F | 3000          |
 | Wrapped ADA   | WADA   | `18`     | 0xA9aE90E9D541F726ae8Fb39C5172F2c9D09E2E54 | 8000          |
 | Wrapped Ether | WETH   | `18`     | 0x12a89f0Cdf44082aEEF0194924A5280Cc178073A | 9000          |
+
 <br>
 
 ### Kovan (Testnet)
@@ -65,6 +66,7 @@
 | ------------- | ------ | -------- | ------------------------------------------ | ------------- |
 | Wrapped Ether | WETH   | `18`     | 0x6A8a5FB1bd977849b4fEcFb1e104ABfeB23b440b | 2000          |
 | USD Coin      | USDC   | `6`      | 0x10e8BD2aEa9d43439aC072bF4C68Fb41fa6eB73A | 2000          |
+
 <br>
 
 ### Moonbase Alpha (Testnet)
@@ -75,6 +77,7 @@
 | ------------- | ------ | -------- | ------------------------------------------ | ------------- |
 | Wrapped Ether | WETH   | `18`     | 0x6A8a5FB1bd977849b4fEcFb1e104ABfeB23b440b | 2000          |
 | USD Coin      | USDC   | `6`      | 0x10e8BD2aEa9d43439aC072bF4C68Fb41fa6eB73A | 2000          |
+
 <br>
 
 ### Milkomeda C1 (Testnet)
@@ -85,6 +88,7 @@
 | ------------- | ------ | -------- | ------------------------------------------ | ------------- |
 | Wrapped Ether | WETH   | `18`     | 0x6A8a5FB1bd977849b4fEcFb1e104ABfeB23b440b | 2000          |
 | USD Coin      | USDC   | `6`      | 0x10e8BD2aEa9d43439aC072bF4C68Fb41fa6eB73A | 2000          |
+
 <br>
 
 ### Evmos (Testnet)
