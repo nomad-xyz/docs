@@ -1,6 +1,8 @@
-# Deployed ERC-20 Tokens (Mainnet)
+# Nomad - Deployed Domains
 
-## Ethereum 
+## Production (Mainnet)
+
+### Ethereum 
 
 **Domain ID:** `6648936`
 
@@ -10,7 +12,7 @@
 
 <br>
 
-## Moonbeam
+### Moonbeam
 
 **Domain ID:** `1650811245`
 
@@ -22,7 +24,7 @@
 | USD Coin       | USDC   | `6`      | 0x8f552a71EFE5eeFc207Bf75485b356A0b3f01eC9 | 6648936       |
 | Tether USD     | USDT   | `6`      | 0x8e70cD5B4Ff3f62659049e74b6649c6603A0E594 | 6648936       |
 
-## Milkomeda C1
+### Milkomeda C1
 
 **Domain ID:** `25393`
 
@@ -36,9 +38,9 @@
 
 <hr>
 
-# Deployed ERC-20 Tokens (Development)
+## Development (Testnet)
 
-## Rinkeby (Testnet)
+### Rinkeby (Testnet)
 
 **Domain ID:** `2000`
 
@@ -55,7 +57,7 @@
 | Wrapped Ether | WETH   | `18`     | 0x12a89f0Cdf44082aEEF0194924A5280Cc178073A | 9000          |
 <br>
 
-## Kovan (Testnet)
+### Kovan (Testnet)
 
 **Domain ID:** `3000`
 
@@ -65,7 +67,7 @@
 | USD Coin      | USDC   | `6`      | 0x10e8BD2aEa9d43439aC072bF4C68Fb41fa6eB73A | 2000          |
 <br>
 
-## Moonbase Alpha (Testnet)
+### Moonbase Alpha (Testnet)
 
 **Domain ID:** `5000`
 
@@ -75,7 +77,7 @@
 | USD Coin      | USDC   | `6`      | 0x10e8BD2aEa9d43439aC072bF4C68Fb41fa6eB73A | 2000          |
 <br>
 
-## Milkomeda C1 (Testnet)
+### Milkomeda C1 (Testnet)
 
 **Domain ID:** `8000`
 
@@ -85,7 +87,7 @@
 | USD Coin      | USDC   | `6`      | 0x10e8BD2aEa9d43439aC072bF4C68Fb41fa6eB73A | 2000          |
 <br>
 
-## Evmos (Testnet)
+### Evmos (Testnet)
 
 **Domain ID:** `9000`
 
