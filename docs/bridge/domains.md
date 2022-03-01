@@ -34,7 +34,7 @@
 | USD Coin       | USDC   | `6`      | 0x5a955FDdF055F2dE3281d99718f5f1531744B102 | 6648936       |
 | Tether USD     | USDT   | `6`      | 0xab58DA63DFDd6B97EAaB3C94165Ef6f43d951fb2 | 6648936       |
 
-</hr>
+<hr>
 
 # Deployed ERC-20 Tokens (Development)
 
@@ -91,4 +91,4 @@
 
 | Name | Symbol | Decimals | Address | Origin Domain |
 | ---- | ------ | -------- | ------- | ------------- |
-<br>
+
