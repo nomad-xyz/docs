@@ -41,7 +41,7 @@ function getBridgeSidebar() {
     {
       text: "Resources",
       children: [
-        { text: "Deployed Tokens", link: "/bridge/deployed-tokens.html" },
+        { text: "Deployed Domains and Addresses", link: "/bridge/domains.html" },
       ],
     },
     { text: "FAQs", link: "/bridge/faq.html" },

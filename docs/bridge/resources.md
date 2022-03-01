@@ -5,4 +5,4 @@ lang: en-US
 
 # Resources
 
-- [Deployed Tokens List](deployed-tokens.md)
+- [Deployed Tokens List](domains.md)

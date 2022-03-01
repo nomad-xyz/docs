@@ -9,7 +9,7 @@ lang: en-US
 
 ### What assets are available to bridge? (updated 01/13/2022)
 
-The Nomad app at https://app.nomad.xyz supports the following assets. For a complete list of tokens and their addresses see the [Deployed Tokens List](./deployed-tokens.md).
+The Nomad app at https://app.nomad.xyz supports the following assets. For a complete list of tokens and their addresses see the [Deployed Tokens List](./domains.md).
 
 * WETH
 * ETH
