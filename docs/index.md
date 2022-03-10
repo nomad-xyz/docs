@@ -210,6 +210,6 @@ Nomad will roll out its finalized governance composition in February 2022. Chain
 **Signers:**
 - [Barbara Liau](https://twitter.com/barbaraliau): `0xDE9cfb1216889Dee0cAB8afB04c63911427659E4`
 - [Conner Swann](https://twitter.com/YourBuddyConner): `0xea24Ac04DEFb338CA8595C3750E20166F3b4998A`
-- [Art Kaseman](): `0x9A23197B7d8bA57E8fe62c3047003C8854F688Cc`
 - [Alberto Viera](https://twitter.com/theAlbertoV19): `0x4E8ee1AEFEf37c431c6B68F1F5fE6e309ba44376`
+- [Arthur Kaseman](https://www.purestake.com/about/): `0x9A23197B7d8bA57E8fe62c3047003C8854F688Cc`
 - [Aaron Evans](): `0x3DfED02fEFDDA06A80E21f35097fb910a4a790ef`
