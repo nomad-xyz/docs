@@ -27,7 +27,6 @@
 | CQT            | CQT    | `18`     | 0x5130ca61bf02618548dfc3fdef50b50b36b11f2b | Ethereum      |
 | FRAX           | FRAX   | `18`     | 0x8d6e233106733c7cc1ba962f8de9e4dcd3b0308e | Ethereum      |
 | FXS            | FXS    | `18`     | 0x21a8daca6a56434bdb6f39e7616c0f9891829aec | Ethereum      |
-| CQT            | CQT    | `18`     | 0x5130ca61bf02618548dfc3fdef50b50b36b11f2b | Ethereum      |
 
 ### Milkomeda C1
 
