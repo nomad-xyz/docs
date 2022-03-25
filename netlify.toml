@@ -3,13 +3,16 @@
   from = "/sdk"
   to = "/sdk/"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/sdk-bridge"
   to = "/sdk-bridge/"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/sdk-govern"
   to = "/sdk-govern/"
   status = 200
+  force = true
