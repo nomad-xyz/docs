@@ -65,6 +65,14 @@ function getBridgeSidebar() {
 function getIntegrationsSidebar() {
   return [
     {
+      text: "Developer Resources",
+      children: [
+        { text: "Nomad Domain IDs", link: "/dev/domain-ids.html" },
+        { text: "SDK Documentation", link: "/dev/sdk.html" },
+        { text: "Writing a xApp", link: "/dev/xapps.html" },
+      ],
+    },
+    {
       text: "Technical Docs",
       children: [
         { text: "Nomad Architecture", link: "/dev/architecture.html" },
@@ -80,14 +88,6 @@ function getIntegrationsSidebar() {
           link: "/dev/prod-contract-deployment.html",
         },
         { text: "Off-Chain Agents", link: "/dev/agents/" },
-      ],
-    },
-    {
-      text: "Developer Resources",
-      children: [
-        { text: "Nomad Domain IDs", link: "/dev/domain-ids.html" },
-        { text: "SDK", link: "/dev/sdk.html" },
-        { text: "Writing a xApp", link: "/dev/xapps.html" },
       ],
     },
   ];

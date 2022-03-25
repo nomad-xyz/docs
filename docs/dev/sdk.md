@@ -5,30 +5,21 @@ lang: en-US
 
 # Nomad SDK
 
-## Contract Updates
+### Core
 
-When new contracts are deployed for a particular Nomad deployment environment, the SDK must be updated to reflect the fresh contract addresses. Each environment has a configuration located in [`typescript/nomad-sdk/src/nomad/domains/`](https://github.com/nomad-xyz/nomad-monorepo/blob/main/typescript/nomad-sdk/src/nomad/domains)
+ - <a href="https://www.npmjs.com/package/@nomad-xyz/sdk" target="_blank">npm package</a>
+ - <a href="/sdk/" target="_blank">docs</a>
 
-When updating the SDK, take care to use the *correct contract addresses*, as it can be confusing and any misconfiguration results in complete failure downstream. Also keep in mind that we're always referencing the address of the *proxy contract*, as opposed to the implementation or beacon contracts.
+### Bridge
 
-### Understand the SDK Config 
+ - <a href="https://www.npmjs.com/package/@nomad-xyz/sdk-bridge" target="_blank">npm package</a>
+ - <a href="/sdk-bridge/" target="_blank">docs</a>
 
-The `NomadDomain` type takes the following important contract addresses as input: 
-- bridgeRouter: The address of the deployed `BridgeRouter` xApp
-- ethHelper: The address of the deployed `EthHelper` contract. This has to be deployed exactly once for a particular network as the EthHelper is deploy-agnostic, if it has been deployed already there is no need to change this value. 
-- home: The address of the deployed `Home` contract. 
-- replicas: **This is where people get tripped up.** - The address(es) of any deployed replicas corresponding to remote homes deployed to the Domain being configured.
+### Governance
 
-### Sanity Check!
+ - <a href="https://www.npmjs.com/package/@nomad-xyz/sdk-govern" target="_blank">npm package</a>
+ - <a href="/sdk-govern/" target="_blank">docs</a>
 
-Once you have completed the configuration, it is helpful to test your changes locally against a tool like `nomad-monitor`. 
+### Multi Provider
 
-### Release It 
-
-After you are finished, commit your changes and cut a release of the SDK: 
-
-```
-$ npm version (major|minor|patch)
-
-$ npm run publish-npm
-```
+ - <a href="https://www.npmjs.com/package/@nomad-xyz/multi-provider" target="_blank">npm package</a>
