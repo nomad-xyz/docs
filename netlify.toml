@@ -2,17 +2,17 @@
 [[redirects]]
   from = "/sdk"
   to = "/sdk/index.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/sdk-bridge"
   to = "/sdk-bridge/index.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/sdk-govern"
   to = "/sdk-govern/index.html"
-  status = 200
+  status = 301
   force = true
