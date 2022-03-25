@@ -1,0 +1,15 @@
+# The following redirects are for generated sdk/sdk-bridge/sdk-govern docs
+[[redirects]]
+  from = "/sdk"
+  to = "/sdk/"
+  status = 200
+
+[[redirects]]
+  from = "/sdk-bridge"
+  to = "/sdk-bridge/"
+  status = 200
+
+[[redirects]]
+  from = "/sdk-govern"
+  to = "/sdk-govern/"
+  status = 200
