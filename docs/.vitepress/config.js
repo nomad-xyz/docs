@@ -68,8 +68,7 @@ function getIntegrationsSidebar() {
       text: "Developer Resources",
       children: [
         { text: "Nomad Domain IDs", link: "/dev/domain-ids.html" },
-        { text: "@nomad-xyz/sdk Docs", link: "/dev/sdk.html" },
-        { text: "@nomad-xyz/sdk-bridge Docs", link: "/dev/sdk.html" },
+        { text: "SDK Documentation", link: "/dev/sdk.html" },
         { text: "Writing a xApp", link: "/dev/xapps.html" },
       ],
     },
