@@ -184,7 +184,7 @@ Nomad will roll out its finalized governance process and signer composition in A
 
 **Signers:**
 - [Layne Haber](https://twitter.com/LayneHaber): `0xC69b66cc2811B509829448FBFfb2553c4CBb627e`
-- [Praneeth Srinkanti](https://twitter.com/bees_neeth):	`0x9bdD76b2a69Db43Fa695a10f5977b8FD891225f3`
+- [Praneeth Srikanti](https://twitter.com/bees_neeth):	`0x9bdD76b2a69Db43Fa695a10f5977b8FD891225f3`
 - [Pranay Mohan](https://twitter.com/pranaymohan):	`0xab0614cE8d53ea2c67B87f8ad4d8Fac7A4a516e5`
 - [Anna Carroll](https://twitter.com/annascarroll):	`0x25270d2e6980C5b343C4866Aea904a9A9bCA733F`
 - [Katherine Wu](https://twitter.com/katherineykwu):	`0x83865712c50f702fA4650C7fadEd90A54242046e`
