@@ -207,3 +207,39 @@ Nomad will roll out its finalized governance composition in February 2022. Chain
 
 **Signers:**
 - [Conner Swann](https://twitter.com/YourBuddyConner): `0xea24Ac04DEFb338CA8595C3750E20166F3b4998A`
+
+## Watchers
+
+The Watcher is a permissioned role which secures cross-chain applications from receiving fraudulent (incorrect or malicious) transactions. In the case that fraud is proven on a `Home` contract, the role of the Watcher is to block the fraudulent Home on all receiving chains, such that no fraudulent messages can take effect. 
+
+Specifically, in order to "block" a fraudulent `Home`, the Watcher must un-enroll the `Replica` contract from the `xAppConnectionManager` contract on all receiving chains. This prevents fraudulent messages from the failed `Home` from affecting the cross-chain applications. Whenever a message from the fraudulent `Home` is processed on the receiving `Replica`, the `Replica` is no longer enrolled in the `xAppConnectionManager`; therefore, the cross-chain application will reject the message, and it cannot have any harmful effect. 
+
+The main trust assumption for a Watcher is that they will:
+- ALWAYS un-enroll a Replica if fraud HAS been proven on the Home chain. 
+   - They must maintain liveness in order to observe fraud and react in a timely manner
+   - They must not collude to overlook fraud which has occurred
+- NEVER un-enroll a Replica if fraud HAS NOT been proven on the Home chain
+   - They must not use their power to block the message channel without reason
+
+As long as 1 Watcher remains live and honest, fraud will be blocked on the receiving chain(s).
+
+Watcher permissions are set on the `xAppConnectionManager` contract. Each cross-chain application can choose to deploy and configure their own `xAppConnectionManager` - with its own chosen Watcher set - or make use of any existing `xAppConnectionManager` - in order to leverage an existing Watcher set. Watcher permissions are configured on a per-chain basis, and each chain can have any number of Watchers (0 - N).
+
+There are two "core" cross-chain applications in the Nomad system which share a single `xAppConnectionManager`. These cross-chain applications are the Nomad Token Bridge, and Nomad's system-level cross-chain Governance App. This `xAppConnectionManager` is deployed and configured by the Nomad core team on each chain, and Governance controls the power to add or remove Watcher permissions on this contract.
+
+The Watcher set for each chain for the canonical `xAppConnectionManager` contracts are as follows: 
+
+### Ethereum
+
+**xAppConnectionManager:** https://etherscan.io/address/0xFe8874778f946Ac2990A29eba3CFd50760593B2F
+
+**Watchers:** 
+- Nomad core team - `0x9782A3C8128f5D1BD3C9655d03181ba5b420883E`
+
+----
+### Moonbeam
+
+**xAppConnectionManager:** https://moonscan.io/address/0xdB378579c2Af11817EEA21474A39F95B5b9DfD7e
+
+**Watchers:**
+- Nomad core team - `0x297BBC2F2EAAEB17Ee53F514020bC8173F0570dC`
