@@ -204,7 +204,13 @@ Nomad will roll out its finalized governance process and signer composition in A
 ----
 ### Moonbeam Recovery Manager
 
-**Policy:** 1 of 1 EOA
+[Moonscan](https://moonbeam.moonscan.io/address/0x2D23B3865D5B7CD88Ce9CE7514a13545672d9eF7), [Gnosis Safe](https://multisig.moonbeam.network/mbeam:0x2D23B3865D5B7CD88Ce9CE7514a13545672d9eF7/settings/owners)
+
+**Policy:** 3 of 5 - of the five total signers, three signatures are required to execute a transaction
 
 **Signers:**
+- [Barbara Liau](https://twitter.com/barbaraliau): `0xDE9cfb1216889Dee0cAB8afB04c63911427659E4`
 - [Conner Swann](https://twitter.com/YourBuddyConner): `0xea24Ac04DEFb338CA8595C3750E20166F3b4998A`
+- [Alberto Viera](https://twitter.com/theAlbertoV19): `0x4E8ee1AEFEf37c431c6B68F1F5fE6e309ba44376`
+- [Arthur Kaseman](https://www.purestake.com/about/): `0x9A23197B7d8bA57E8fe62c3047003C8854F688Cc`
+- [Aaron Evans](https://www.linkedin.com/in/aaron-evans-a2366/): `0x3DfED02fEFDDA06A80E21f35097fb910a4a790ef`
