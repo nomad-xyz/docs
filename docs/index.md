@@ -172,21 +172,22 @@ The benefit of Nomad is that the broadcast channel allows for a single-producer,
 
 We’ve been careful to address all concerns with the Nomad system and have designed solutions that allow for optimal speed, cost, and security of the network. For example, we rely on fraud publication rather than fraud proofs to improve the speed and cost of sending messages. In this security model, any potential fraud is disincentivized and costly, and all participants will always learn of any potential fraud with plenty of time to mitigate harm.
 
-## Nomad Governance
+## Governance
 
-Nomad will roll out its finalized governance composition in February 2022. Chains like Moonbeam plan to launch Gnosis Safe some time after launching EVM compatibility. Until Gnosis is launched and the final Nomad governance signers are selected, Nomad will be deployed with the following signers:
+Nomad will roll out its finalized governance process and signer composition in April 2022.
 
 ### Governor
 
 [Etherscan](https://etherscan.io/address/0x93277b8f5939975b9e6694d5fd2837143afbf68a), [Gnosis Safe](https://gnosis-safe.io/app/eth:0x93277b8f5939975b9E6694d5Fd2837143afBf68A/settings/owners)
 
-**Policy:** 2 of 4 - of the four total signers, two signatures are required to execute a transaction
+**Policy:** 3 of 5 - of the five total signers, three signatures are required to execute a transaction
 
 **Signers:**
 - [Layne Haber](https://twitter.com/LayneHaber): `0xC69b66cc2811B509829448FBFfb2553c4CBb627e`
-- [Praneeth Srinkanti](https://twitter.com/bees_neeth):	`0x9bdD76b2a69Db43Fa695a10f5977b8FD891225f3`
+- [Praneeth Srikanti](https://twitter.com/bees_neeth):	`0x9bdD76b2a69Db43Fa695a10f5977b8FD891225f3`
 - [Pranay Mohan](https://twitter.com/pranaymohan):	`0xab0614cE8d53ea2c67B87f8ad4d8Fac7A4a516e5`
 - [Anna Carroll](https://twitter.com/annascarroll):	`0x25270d2e6980C5b343C4866Aea904a9A9bCA733F`
+- [Katherine Wu](https://twitter.com/katherineykwu):	`0x83865712c50f702fA4650C7fadEd90A54242046e`
 
 ----
 ### Ethereum Recovery Manager
