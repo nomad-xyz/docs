@@ -19,21 +19,21 @@ Nomad is a secure gas efficient cross-chain protocol that allows users to bridge
 
 Connext is not available for every asset and may not be available for larger sums. If it is available, we provide this option by default. If you would like to use Nomad instead, you can temporarily switch by clicking "Use Nomad" or you can toggle off "Enable Connext" in settings.
 
-![Switch to Nomad](./assets/use-nomad.png)
-![Enables/Disable Connext](./assets/toggle-connext.png)
+![Switch to Nomad](/partner-assets/use-nomad.png)
+![Enables/Disable Connext](/partner-assets/toggle-connext.png)
 
 ## Bridge using Nomad
 
 Connect to Metamask.
 
-![Connect to Metamask](./assets/connect-metamask.png)
+![Connect to Metamask](/partner-assets/connect-metamask.png)
 
 <br>
 
 Select Ethereum as the origin network and Milkomeda C1 as the destination.
 
-![Select Milkomeda as Destination](./assets/select-milkomeda.png)
-![Select Origin and Destination Networks](./assets/select-networks.png)
+![Select Milkomeda as Destination](/partner-assets/select-milkomeda.png)
+![Select Origin and Destination Networks](/partner-assets/select-networks.png)
 
 <br>
 
@@ -42,21 +42,21 @@ Select Ethereum as the origin network and Milkomeda C1 as the destination.
 Sending assets to an address you do not control can result in a permanent loss of funds!
 :::
 
-![Change Destination](./assets/edit-destination-address.png)
-![Paste Destination](./assets/paste-destination-address.png)
+![Change Destination](/partner-assets/edit-destination-address.png)
+![Paste Destination](/partner-assets/paste-destination-address.png)
 
 <br>
 
 Select the asset you want to send using the asset dropdown menu and the amount you want to send using the input prompt.
 
-![Select an Asset](./assets/select-asset.png)
-![Enter Amount](./assets/bridge-with-nomad.png)
+![Select an Asset](/partner-assets/select-asset.png)
+![Enter Amount](/partner-assets/bridge-with-nomad.png)
 
 <br>
 
 Click `Bridge Tokens` and approve the transaction in Metamask.
 
-![Approve Bridge Transaction](./assets/sending.png)
+![Approve Bridge Transaction](/partner-assets/sending.png)
 
 <br>
 
@@ -68,25 +68,25 @@ Processing fees are subsidized for Milkomeda, so your funds will be deposited di
 If you bridge **back** to Ethereum, you will need to wait 30-65 minutes and then revisit the Transaction page to complete your transfer and receive your funds on Ethereum.
 :::
 
-![See Transaction Details](./assets/pending.png)
+![See Transaction Details](/partner-assets/pending.png)
 
 <br>
 
 You can expand the time estimate tab to track your transaction status by clicking the down arrow in the blue box.
 
-![See Expanded Transaction Details](./assets/expand-status.png)
+![See Expanded Transaction Details](/partner-assets/expand-status.png)
 
 <br>
 
 (Optional) If you navigated away from the GUI at any point and want to find your transfer's progress page again, visit [https://app.nomad.xyz/tx](https://app.nomad.xyz/tx) and enter the origin network and your transfer's transaction hash.
 
-![Search Tx](./assets/search-tx.png)
+![Search Tx](/partner-assets/search-tx.png)
 
 <br>
 
 Once your transfer has completed, you should see the below display and your funds will be in the account of your destination address.
 
-![Finished](./assets/transfer-complete.png)
+![Finished](/partner-assets/transfer-complete.png)
 
 <br>
 
@@ -100,15 +100,15 @@ Fill out transfer details: connect wallet, select token, enter amount, select or
 
 Once the input is filled out and valid, the app will check if there is available liquidity via Connext.
 
-![Checking availability](./assets/checking-connext.png)
+![Checking availability](/partner-assets/checking-connext.png)
 
 If there is, your screen will look like this. You may proceed with Connext or click "Use Nomad" to switch.
 
-![Connext available](./assets/connext-available.png)
+![Connext available](/partner-assets/connext-available.png)
 
 Click "Preview Send" to see the estimated fees and receive amount. It will take approximately 6-8 seconds for the results to appear.
 
-![Calculating fee](./assets/calculating-fees.png)
+![Calculating fee](/partner-assets/calculating-fees.png)
 
 Click `Send Tokens` and approve the transaction in Metamask!
 
@@ -116,4 +116,4 @@ In a few minutes, you will see your transfer appear in a table below. Click "Cla
 
 Click "View" to go to your transaction in the ConnextScan block explorer. Or you can visit `https://connextscan.io/tx/<yourtransactionhash>`.
 
-![Claim Connext funds](./assets/connext-claim.png)
+![Claim Connext funds](/partner-assets/connext-claim.png)
