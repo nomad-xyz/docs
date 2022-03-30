@@ -16,8 +16,6 @@ Nomad makes it radically easier to use cross-chain messaging channels to communi
 - on-chain treasury
 - permissionless faucet
 
-TODO: link to example code below
-
 ### How do I build a xApp?
 
 To get started with building your own xApp, first you'll need to define the rules for sending and receiving messages for your xApps' use case. We call these rules the ***Router Contracts***. These Router contracts must:
@@ -37,21 +35,25 @@ By implementing these pieces of functionality within a Router contract and deplo
 [The examples repo](https://github.com/nomad-xyz/examples) has several code examples for sample xApps.
 
 ### xApp Template
-TODO - link to https://github.com/nomad-xyz/examples/tree/main/xapps/contracts/ping-pong
+
+Start building your own xApp today! We've got you started with this simple [template](https://github.com/nomad-xyz/examples/tree/main/xapps/contracts/xapp-template)
 
 ### Ping Pong xApp
-TODO - link to https://github.com/nomad-xyz/examples/tree/main/xapps/contracts/xapp-template
+
+See how messages are passed back and forth between 2 chains in our [Ping Pong example](https://github.com/nomad-xyz/examples/tree/main/xapps/contracts/ping-pong)
 
 ### Token Bridge xApp
-TODO
+
+The Token Bridge xApp is our first fully fledged application and is maintained by the Nomad core team. Users can bridge tokens between any networks currently supported by Nomad.
+
+ - [Code](https://github.com/nomad-xyz/monorepo/tree/main/packages/contracts-bridge)
+ - [Bridge GUI](https://app.nomad.xyz/)
 
 ### Cross-Chain Governance xApp
-TODO
 
+Coming soon
 
 ## Additional Resources
 
-TODO
-- link to Anna's talk (https://www.youtube.com/watch?v=E_zhTRsxWtw)
-- link to any other app partner's public repo that would be useful
-- link to Connext
+- [How to Build xApps](https://www.youtube.com/watch?v=E_zhTRsxWtw)
+- [Connext Network](https://docs.connext.network/)
