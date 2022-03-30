@@ -7,7 +7,7 @@ lang: en-US
 
 Nomad is a new design for radically cheaper cross-chain communication without header verification. We expect operating Nomad to cut 90% of gas costs compared to a traditional header relay. To accomplish this, we took inspiration from optimistic systems (a la Optimistic Roll-ups). Nomad features many of the features we prize in an optimistic mechanism, like public verification, low gas fees, broad participation, but has a slightly different security model.
 
-Nomad will form the base layer of a cross-chain communication network that provides fast, cheap communication for all smart contract chains and rollups. It relies only on widely-available cryptographic primitives (unlike header relays), has a latency of a few hours (rather than an ORU’s one week latency), and imposes only about 120,000 gas overhead on message senders.
+Nomad will form the base layer of a cross-chain communication network that provides fast, cheap communication for all smart contract chains and rollups. It relies only on widely-available cryptographic primitives (unlike header relays), has a latency of thirty minutes (rather than an ORU’s one week latency), and imposes only about 120,000 gas overhead on message senders.
 
 Nomad has been designed for ease of implementation in any blockchain that supports user-defined computations. We will provide initial Solidity implementations of the on-chain contracts, and Rust implementations of the off-chain system agents.
 
