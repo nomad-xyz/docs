@@ -22,32 +22,37 @@ If you would like to test our bridge using testnet funds before using real funds
 
 Connect to Metamask:
 
-![Connect to Metamask](../public/tutorials/bridge-gui/connect-metamask.png)
+![Connect to Metamask](./assets/connect-metamask.png)
 
 <br>
 
 Select Ethereum as the origin network and Milkomeda C1 as the destination:
 
-![Select Origin and Destination Networks](../public/tutorials/bridge-gui/choose-networks.png)
+![Select Milkomeda as Destination](./assets/select-milkomeda.png)
+![Select Origin and Destination Networks](./assets/select-networks.png)
 
 <br>
 
-(Optional) Change Destination address. This is set as your wallet address by default. ::: CAUTION Sending assets to an address you do not control can result in a permanent loss of funds! ::: Click "edit", click "change" inside input. Then copy your address, click to paste, and save.
+(Optional) Change Destination address. This is set as your wallet address by default. Click "edit". A modal will pop up, click "change" inside the input. Then copy your address, click to paste, and save.
+::: warning CAUTION
+Sending assets to an address you do not control can result in a permanent loss of funds!
+:::
 
-![Change Destination](../public/tutorials/bridge-gui/change-dest-1.png)
-![Paste Destination](../public/tutorials/bridge-gui/change-dest-2.png)
+![Change Destination](./assets/edit-destination-address.png)
+![Paste Destination](./assets/paste-destination-address.png)
 
 <br>
 
 Select the asset you want to send using the asset dropdown menu and the amount you want to send using the input prompt:
 
-![Select an Asset and Amount](../public/tutorials/bridge-gui/select-asset-amount.png)
+![Select an Asset](./assets/select-asset.png)
+![Enter Amount](./assets/bridge-with-nomad.png)
 
 <br>
 
 Click `Bridge Tokens` and approve the transaction in Metamask:
 
-![Approve Bridge Transaction](../public/tutorials/bridge-gui/approve-send-tx.png)
+![Approve Bridge Transaction](./assets/sending.png)
 
 <br>
 
@@ -59,25 +64,25 @@ Processing fees are subsidized for Milkomeda, so your funds will be deposited di
 If you bridge **back** to Ethereum, you will need to wait 30-65 minutes and then revisit the Transaction page to complete your transfer and receive your funds on Ethereum.
 :::
 
-![See Transaction Details](../public/tutorials/bridge-gui/tx-hash-page.png)
+![See Transaction Details](./assets/pending.png)
 
 <br>
 
 You can expand the time estimate tab to track your transaction status by clicking the down arrow in the blue box:
 
-![See Expanded Transaction Details](../public/tutorials/bridge-gui/tx-hash-page-expanded.png)
+![See Expanded Transaction Details](./assets/expand-status.png)
 
 <br>
 
 (Optional) If you navigated away from the GUI at any point and want to find your transfer's progress page again, visit [https://app.nomad.xyz/tx](https://app.nomad.xyz/tx) and enter the origin network and your transfer's transaction hash.
 
-![Search Tx](../public/tutorials/bridge-gui/search-tx.png)
+![Search Tx](./assets/search-tx.png)
 
 <br>
 
 Once your transfer has completed, you should see the below display and your funds will be in the account of your destination address.
 
-![Finished](../public/tutorials/bridge-gui/tx-finished.png)
+![Finished](./assets/transfer-complete.png)
 
 <br>
 
