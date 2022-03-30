@@ -35,7 +35,7 @@ The sending (or “home”) chain produces a series of documents ("messages") th
 
 Nomad's Core system is split between on-chain and off-chain components. The protocol is implemented in Smart Contracts, with the bulk of the protocol interactions being automated by a series of off-chain "Agents". 
 
-![Nomad Components](./public/Nomad-Architecture.png)
+![Nomad Components](/Nomad-Architecture.png)
 
 For a detailed deep dive on the protocol, check out the complete [Nomad Documentation](https://docs.nomad.xyz/)
 
