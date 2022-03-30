@@ -38,7 +38,10 @@ Select origin and destination networks:
 
 <br>
 
-(Optional) Change Destination address. This is set as your wallet address be default. ::: CAUTION Sending assets to an address you do not control can result in a permanent loss of funds! ::: Click "edit", click "change" inside input, then copy your address, click to paste, then Save.
+(Optional) Change Destination address. This is set as your wallet address by default. Click "edit". A modal will pop up, click "change" inside the input. Then copy your address, click to paste, and save.
+::: warning CAUTION
+Sending assets to an address you do not control can result in a permanent loss of funds!
+:::
 
 ![Change Destination](../public/tutorials/bridge-gui/change-dest-1.png)
 ![Paste Destination](../public/tutorials/bridge-gui/change-dest-2.png)
