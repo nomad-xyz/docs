@@ -5,7 +5,7 @@ lang: en-US
 
 # Nomad and Connext - An Overview 
 
-Nomad and Connext are available on <Insert Chain Name Here>! 
+Nomad and Connext are available on `<Insert Chain Name Here>`! 
 
 - Bridge Today: [app.nomad.xyz](https://app.nomad.xyz)
 - Read the Docs: [docs.nomad.xyz](https://docs.nomad.xyz)
