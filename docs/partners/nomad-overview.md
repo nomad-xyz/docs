@@ -19,7 +19,7 @@ Nomad is a new design for radically cheaper cross-chain communication without he
 Nomad provides the base layer of a cross-chain communication network that provides fast, cheap communication for all smart contract chains and rollups. It relies only on widely-available cryptographic primitives (unlike header relays) and measures message latency in minutes (rather than an ORU’s one-week latency).
 
 ## What is Connext? 
- 
+
 Connext, using the **N**oncustodial **X**domain **T**ransfer **P**rotocol or **NXTP**, is a lightweight protocol that enables cross-chain/rollup transactions that retain the security properties of the underlying execution environment. It facilitates cross-chain value transfers via a network of liquidity providers (called Routers) which allows for near-instant settlement of cross-chain token transfers, assuming an existing liquidity environment on the receiving blockchain.
 
 Connext does not rely on any external validator set in order to operate -- a trust model that is highly complimentary with that of Nomad. 
