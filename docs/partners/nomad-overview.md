@@ -35,7 +35,7 @@ The sending (or “home”) chain produces a series of documents ("messages") th
 
 Nomad's Core system is split between on-chain and off-chain components. The protocol is implemented in Smart Contracts, with the bulk of the protocol interactions being automated by a series of off-chain "Agents". 
 
-![Nomad Components](/Nomad-Architecture.png)
+![Nomad Components](../public/Nomad-Architecture.png)
 
 For a detailed deep dive on the protocol, check out the complete [Nomad Documentation](https://docs.nomad.xyz/)
 
@@ -49,7 +49,7 @@ Nxtp is made up of a simple contract that uses a locking pattern to prepare and 
 
 ### Transaction Lifecycle
 
-![Connext High Level Flow](/partner-assets/overview/connext-highlevel-flow.png)
+![Connext High Level Flow](../public/partner-assets/overview/connext-highlevel-flow.png)
 
 Transactions go through three phases:
 
@@ -65,7 +65,7 @@ It is important to note that neither participant should require a store to compl
 
 ### Architecture
 
-![Connext Architecture](/partner-assets/overview/connext-architecture.png)
+![Connext Architecture](../public/partner-assets/overview/connext-architecture.png)
 
 The system contains the following pieces:
 

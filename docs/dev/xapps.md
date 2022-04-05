@@ -6,7 +6,7 @@ lang: en-US
 # Developing Cross-Chain Applications
 
 ::: info
-  A xApp (pronounced "zapp") is a cross-chain application built on top of the [Nomad Protocol](../index.md).
+  A xApp (pronounced "zap") is a cross-chain application built on top of the [Nomad Protocol](../index.md).
 :::
 
 ## Summary

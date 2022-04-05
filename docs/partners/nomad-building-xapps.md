@@ -7,7 +7,7 @@ lang: en-US
 
 ### What is a xApp?
 
-xApp (pronounced "zapp") is short for cross-chain application. A xApp is an application that uses cross-chain messaging channels.
+xApp (pronounced "zap") is short for cross-chain application. A xApp is an application that uses cross-chain messaging channels.
 
 Nomad makes it radically easier to use cross-chain messaging channels to communicate between chains in the form of raw bytes, which can be used to execute actions on-chain. xApp developers
 
@@ -36,11 +36,11 @@ By implementing these pieces of functionality within a Router contract and deplo
 
 ### xApp Template
 
-Start building your own xApp today! We've got you started with this simple [template](https://github.com/nomad-xyz/examples/tree/main/xapps/contracts/xapp-template)
+Start building your own xApp today! We've got you started with this simple [template](https://github.com/nomad-xyz/examples/tree/main/packages/xapp-example/contracts/xapp-template)
 
 ### Ping Pong xApp
 
-See how messages are passed back and forth between 2 chains in our [Ping Pong example](https://github.com/nomad-xyz/examples/tree/main/xapps/contracts/ping-pong)
+See how messages are passed back and forth between 2 chains in our [Ping Pong example](https://github.com/nomad-xyz/examples/tree/main/packages/xapp-example/contracts/ping-pong)
 
 ### Token Bridge xApp
 
