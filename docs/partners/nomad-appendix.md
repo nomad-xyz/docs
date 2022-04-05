@@ -3,7 +3,7 @@ title: Nomad - Appendix
 lang: en-US
 ---
 
-# Apendix
+# Appendix
 
  - **Nomad**: A security-first cross-chain messaging protocol. Nomad is radically cheaper compared to a traditional header relay. Additionally, it is designed for high reusability, meaning it can be quickly deployed to any EVM chain without the need for any custom logic.
 
@@ -25,7 +25,7 @@ lang: en-US
 
  - **Core**: Reference to the core Nomad protocol, or the messaging channels implemented by the core protocol.
 
- - **xApps**: Pronounced `zapp`. A cross-chain application that utilizes the infrastructure of the core Nomad protocol. xApps define the rules for encoding and decoding messages sent via Nomad.
+ - **xApps**: Pronounced `zap`. A cross-chain application that utilizes the infrastructure of the core Nomad protocol. xApps define the rules for encoding and decoding messages sent via Nomad.
 
  - **Routers**: A xApp contract that implements a cross-chain application by specifying the message format, as well as rules for dispatching and handling messages.
 
@@ -43,7 +43,7 @@ lang: en-US
 
  - **Processor**: The off-chain agent which proves the validity of pending messages and sends them to end recipients.
 
- - **Governor**: A multi-sig with the power to perform permissioned actions across chains. [Learn more](/dev/governance.md)
+ - **Governor**: A multi-sig with the power to perform permissioned actions across chains. [Learn more](../dev/governance.md)
 
  - **Dispute Window**: The time period during which fraud (if any) would be reported. Currently 30 minutes for each chain.
 

@@ -19,21 +19,21 @@ Nomad is a secure gas efficient cross-chain protocol that allows users to bridge
 
 Connext is not available for every asset and may not be available for larger sums. If it is available, we provide this option by default. If you would like to use Nomad instead, you can temporarily switch by clicking "Use Nomad" or you can toggle off "Enable Connext" in settings.
 
-![Switch to Nomad](/partner-assets/ethereum-to-milkomeda/use-nomad.png)
-![Enables/Disable Connext](/partner-assets/ethereum-to-milkomeda/toggle-connext.png)
+![Switch to Nomad](../public/partner-assets/ethereum-to-milkomeda/use-nomad.png)
+![Enables/Disable Connext](../public/partner-assets/ethereum-to-milkomeda/toggle-connext.png)
 
 ## Bridge using Nomad
 
 Connect to Metamask.
 
-![Connect to Metamask](/partner-assets/ethereum-to-milkomeda/connect-metamask.png)
+![Connect to Metamask](../public/partner-assets/ethereum-to-milkomeda/connect-metamask.png)
 
 <br>
 
 Select Ethereum as the origin network and Milkomeda C1 as the destination.
 
-![Select Milkomeda as Destination](/partner-assets/ethereum-to-milkomeda/select-milkomeda.png)
-![Select Origin and Destination Networks](/partner-assets/ethereum-to-milkomeda/select-networks.png)
+![Select Milkomeda as Destination](../public/partner-assets/ethereum-to-milkomeda/select-milkomeda.png)
+![Select Origin and Destination Networks](../public/partner-assets/ethereum-to-milkomeda/select-networks.png)
 
 <br>
 
@@ -42,21 +42,21 @@ Select Ethereum as the origin network and Milkomeda C1 as the destination.
 Sending assets to an address you do not control can result in a permanent loss of funds!
 :::
 
-![Change Destination](/partner-assets/ethereum-to-milkomeda/edit-destination-address.png)
-![Paste Destination](/partner-assets/ethereum-to-milkomeda/paste-destination-address.png)
+![Change Destination](../public/partner-assets/ethereum-to-milkomeda/edit-destination-address.png)
+![Paste Destination](../public/partner-assets/ethereum-to-milkomeda/paste-destination-address.png)
 
 <br>
 
 Select the asset you want to send using the asset dropdown menu and the amount you want to send using the input prompt.
 
-![Select an Asset](/partner-assets/ethereum-to-milkomeda/select-asset.png)
-![Enter Amount](/partner-assets/ethereum-to-milkomeda/bridge-with-nomad.png)
+![Select an Asset](../public/partner-assets/ethereum-to-milkomeda/select-asset.png)
+![Enter Amount](../public/partner-assets/ethereum-to-milkomeda/bridge-with-nomad.png)
 
 <br>
 
 Click `Bridge Tokens` and approve the transaction in Metamask.
 
-![Approve Bridge Transaction](/partner-assets/ethereum-to-milkomeda/sending.png)
+![Approve Bridge Transaction](../public/partner-assets/ethereum-to-milkomeda/sending.png)
 
 <br>
 
@@ -68,25 +68,25 @@ Processing fees are subsidized for Milkomeda, so your funds will be deposited di
 If you bridge **back** to Ethereum, you will need to wait 30-65 minutes and then revisit the Transaction page to complete your transfer and receive your funds on Ethereum.
 :::
 
-![See Transaction Details](/partner-assets/ethereum-to-milkomeda/pending.png)
+![See Transaction Details](../public/partner-assets/ethereum-to-milkomeda/pending.png)
 
 <br>
 
 You can expand the time estimate tab to track your transaction status by clicking the down arrow in the blue box.
 
-![See Expanded Transaction Details](/partner-assets/ethereum-to-milkomeda/expand-status.png)
+![See Expanded Transaction Details](../public/partner-assets/ethereum-to-milkomeda/expand-status.png)
 
 <br>
 
 (Optional) If you navigated away from the GUI at any point and want to find your transfer's progress page again, visit [https://app.nomad.xyz/tx](https://app.nomad.xyz/tx) and enter the origin network and your transfer's transaction hash.
 
-![Search Tx](/partner-assets/ethereum-to-milkomeda/search-tx.png)
+![Search Tx](../public/partner-assets/ethereum-to-milkomeda/search-tx.png)
 
 <br>
 
 Once your transfer has completed, you should see the below display and your funds will be in the account of your destination address.
 
-![Finished](/partner-assets/ethereum-to-milkomeda/transfer-complete.png)
+![Finished](../public/partner-assets/ethereum-to-milkomeda/transfer-complete.png)
 
 <br>
 
@@ -100,15 +100,15 @@ Fill out transfer details: connect wallet, select token, enter amount, select or
 
 Once the input is filled out and valid, the app will check if there is available liquidity via Connext.
 
-![Checking availability](/partner-assets/ethereum-to-milkomeda/checking-connext.png)
+![Checking availability](../public/partner-assets/ethereum-to-milkomeda/checking-connext.png)
 
 If there is, your screen will look like this. You may proceed with Connext or click "Use Nomad" to switch.
 
-![Connext available](/partner-assets/ethereum-to-milkomeda/connext-available.png)
+![Connext available](../public/partner-assets/ethereum-to-milkomeda/connext-available.png)
 
 Click "Preview Send" to see the estimated fees and receive amount. It will take approximately 6-8 seconds for the results to appear.
 
-![Calculating fee](/partner-assets/ethereum-to-milkomeda/calculating-fees.png)
+![Calculating fee](../public/partner-assets/ethereum-to-milkomeda/calculating-fees.png)
 
 Click `Send Tokens` and approve the transaction in Metamask!
 
@@ -116,4 +116,4 @@ In a few minutes, you will see your transfer appear in a table below. Click "Cla
 
 Click "View" to go to your transaction in the ConnextScan block explorer. Or you can visit `https://connextscan.io/tx/<yourtransactionhash>`.
 
-![Claim Connext funds](/partner-assets/ethereum-to-milkomeda/connext-claim.png)
+![Claim Connext funds](../public/partner-assets/ethereum-to-milkomeda/connext-claim.png)
