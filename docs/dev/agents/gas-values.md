@@ -11,47 +11,63 @@ Gas estimation is hard. `eth_estimateGas` calls have historically caused our age
 
 <br>
 
-## Home
+## Standard EVM
+
+### Home
 
 Update
 
 - Take average limit for one message (50k) and double base to 100k
 - Each additional message dequeued is ~5k gas so double that cost to 10k per message
-- 100k + (num_messages \* 10k)
+- `100k + (num_messages * 10k)`
 
-Improper Update: TODO
+Improper Update:
+
+- Subset of `update` gas (`update` calls `improperUpdate`)
+- Using same estimation as `update`
+- `100k + (num_messages * 10k)`
 
 <br>
 
-## Replica
+### Replica
 
 Update
 
-- 70k on average
-- Double that to 140k (constant)
+- `70k` on average
+- Double that to `140k` (constant)
 
 Prove
 
-- 100k on average
-- Double that to 200k (constant since merkle proofs always same size)
+- `100k` on average
+- Double that to `200k` (constant since merkle proofs always same size)
 
 Process
 
-- Minimum 850k required
-- Double minimum 1.7M
+- Minimum `850k` required
+- Double minimum to `1.7M`
 
 ProveAndProcess
 
-- 1.7M for process
-- 200k for prove
-- 1.9M total
+- `1.7M` for process
+- `200k` for prove
+- `1.9M` total
 
-DoubleUpdate: TODO
+DoubleUpdate:
+
+- Signature check is ~`50k`
+- Double that for two signature checks in double update `100k`
+- Double total for safety to `200k`
 
 <br>
 
-## XAppConnectionManager
+### XAppConnectionManager
 
-OwnerUnenrollReplica: TODO
+UnenrollReplica:
 
-UnenrollReplica: TODO
+- `60k` average
+- Double that to `120k`
+
+OwnerUnenrollReplica:
+
+- Cheaper version of normal `unenrollReplica`
+- Use same estimate of `120k`
