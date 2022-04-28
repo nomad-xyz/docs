@@ -43,6 +43,7 @@
 ### Evmos
 
 **Domain ID:** `1702260083`
+**wEVMOS9 Contract Address**: (`0xD4949664cD82660AaE99bEdc034a0deA8A0bd517`)[https://evm.evmos.org/address/0xD4949664cD82660AaE99bEdc034a0deA8A0bd517]
 
 | Name           | Symbol | Decimals | Address                                    | Origin   |
 | -------------- | ------ | -------- | ------------------------------------------ | -------- |
