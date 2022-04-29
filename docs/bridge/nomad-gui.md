@@ -11,10 +11,7 @@ There are two options available to send funds through the GUI, Nomad and Connext
 
 Nomad is a secure gas efficient cross-chain protocol that allows users to bridge funds between networks. This takes, on average, 35-60 minutes. There are no fees associated with Nomad, just pay gas! Connext provides liquidity pools for Nomad assets, meaning users can receive funds on the destination chain much faster (less than 10 minutes) for an additional fee. Nomad is advised for large transfers.
 
-Connext is not available for every asset and may not be available for larger sums. If it is available, we provide this option by default. If you would like to use Nomad instead, you can temporarily switch by clicking "Use Nomad" or you can toggle off "Enable Connext" in settings.
-
-![Switch to Nomad](../public/tutorials/bridge-gui/use-nomad.png)
-![Enables/Disable Connext](../public/tutorials/bridge-gui/enable-connext.png)
+Connext is not available for every asset and may not be available for larger sums. We recommend using Nomad if you intend to send large transfers.
 
 ## Bridging Through Nomad
 
@@ -34,7 +31,7 @@ Connect to Metamask:
 
 Select origin and destination networks:
 
-![Select Origin and Destination Networks](../public/tutorials/bridge-gui/choose-networks.png)
+![Select Origin and Destination Networks](../public/tutorials/bridge-gui/select-networks.png)
 
 <br>
 
@@ -50,13 +47,25 @@ Sending assets to an address you do not control can result in a permanent loss o
 
 Select the asset you want to send using the asset dropdown menu and the amount you want to send using the input prompt:
 
-![Select an Asset and Amount](../public/tutorials/bridge-gui/select-asset-amount.png)
+![Select an Asset and Amount](../public/tutorials/bridge-gui/select-token.png)
+
+<br>
+
+Click `Next`:
+
+![Select an Asset and Amount](../public/tutorials/bridge-gui/input-data.png)
+
+<br>
+
+Review your transaction details and associated fees. Check if Connext liquidity is available for your transfer for a faster bridging experience! If proceeding with Connext, continue reading [here](#fast-transfers-with-connext).
+
+![Approve Bridge Transaction](../public/tutorials/bridge-gui/review.png)
 
 <br>
 
 Click `Bridge Tokens` and approve the transaction in Metamask:
 
-![Approve Bridge Transaction](../public/tutorials/bridge-gui/approve-send-tx.png)
+![Approve Bridge Transaction](../public/tutorials/bridge-gui/sending.png)
 
 <br>
 
@@ -66,13 +75,13 @@ After approving the transaction, you will be taken to the transaction details pa
 You must return to the Transaction Page after bridging has concluded to pay for gas and complete your transfer. Nomad may cover the processing and gas fees for some chains.
 :::
 
-![See Transaction Details](../public/tutorials/bridge-gui/tx-hash-page.png)
+![See Transaction Details](../public/tutorials/bridge-gui/transfer-pending.png)
 
 <br>
 
 You can expand the time estimate tab to track your transaction status by clicking the down arrow in the blue box:
 
-![See Expanded Transaction Details](../public/tutorials/bridge-gui/tx-hash-page-expanded.png)
+![See Expanded Transaction Details](../public/tutorials/bridge-gui/expand-status.png)
 
 <br>
 
@@ -84,7 +93,7 @@ You can expand the time estimate tab to track your transaction status by clickin
 
 Once your transfer has completed, you should see the below display and your funds will be in the account of your destination address. If your transfer is taking longer than expected, please reach out to us on [Discord](https://discord.gg/RurtmJApqm) in the #support channel:
 
-![Finished](../public/tutorials/bridge-gui/tx-finished.png)
+![Finished](../public/tutorials/bridge-gui/transfer-complete.png)
 
 <br>
 
@@ -92,27 +101,19 @@ Once your transfer has completed, you should see the below display and your fund
 
 If you are sending to Ethereum, there is one additional processing step due to the high cost of processing transactions on Ethereum. You will see the following display and should click "Complete Transfer" and complete the Metamask transaction. After this, your funds should be at your destination on Ethereum!
 
-![Self Process](../public/tutorials/bridge-gui/self-process.png)
+![Self Process](../public/tutorials/bridge-gui/complete-transfer.png)
 
 <br>
 
 ## Fast Transfers with Connext
 
-Fill out transfer details: connect wallet, select token, enter amount, select origin/destination networks and (optional) set destination address.
+Fill out data for your transfer and click "Next." Select "Connext." If there is liquidity available for your transfer, it will calculate associated fees for your transaction. Note that Connext collects gas fees in the asset that is being sent.
 
-Once the input is filled out and valid, the app will check if there is available liquidity via Connext.
+If there is not liquidity available, you can continue by using Nomad.
 
-![Checking availability](../public/tutorials/bridge-gui/checking-connext.png)
+![Self Process](../public/tutorials/bridge-gui/review-connext.png)
 
-If there is, your screen will look like this. You may proceed with Connext or click "Use Nomad" to switch.
-
-![Connext available](../public/tutorials/bridge-gui/connext-available.png)
-
-Click "Preview Send" to see the estimated fees and receive amount. It will take approximately 6-8 seconds for the results to appear.
-
-![Calculating fee](../public/tutorials/bridge-gui/calculating-fees.png)
-
-Click `Send Tokens` and approve the transaction in Metamask!
+Click `Send` and approve the transaction in Metamask!
 
 In a few minutes, you will see your transfer appear in a table below. Click "Claim" to submit a transaction to receive your funds on the destination chain.
 
