@@ -111,7 +111,7 @@ Fill out data for your transfer and click "Next." Select "Connext." If there is 
 
 If there is not liquidity available, you can continue by using Nomad.
 
-![Self Process](../public/tutorials/bridge-gui/review-connext.png)
+![Self Process](../public/tutorials/bridge-gui/check-connext.png)
 
 Click `Send` and approve the transaction in Metamask!
 
