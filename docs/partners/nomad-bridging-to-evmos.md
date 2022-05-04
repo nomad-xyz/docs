@@ -1,15 +1,9 @@
 ---
-title: Bridge from Ethereum to Evmos
+title: Nomad Bridge GUI
 lang: en-US
 ---
 
-# Bridging To Evmos
-
-Bridging assets from Ethereum to Evmos using the Nomad GUI should be intuitive and easy. In this tutorial, we will walk through the steps required to bridge your assets.
-
-Please find our production bridge GUI at [app.nomad.xyz](https://app.nomad.xyz/).
-
-If you would like to test our bridge using testnet funds before using real funds, please visit our development GUI at [development.app.nomad.xyz](https://development.app.nomad.xyz/).
+# Nomad Bridge GUI
 
 ## Nomad vs Connext, which should I use?
 
@@ -17,22 +11,26 @@ There are two options available to send funds through the GUI, Nomad and Connext
 
 Nomad is a secure gas efficient cross-chain protocol that allows users to bridge funds between networks. This takes, on average, 35-60 minutes. There are no fees associated with Nomad, just pay gas! Connext provides liquidity pools for Nomad assets, meaning users can receive funds on the destination chain much faster (less than 10 minutes) for an additional fee. Nomad is advised for large transfers.
 
-Connext is not available for every asset and may not be available for larger sums. If it is available, we provide this option by default. If you would like to use Nomad instead, you can temporarily switch by clicking "Use Nomad" or you can toggle off "Enable Connext" in settings.
+Connext is not available for every asset and may not be available for larger sums. We recommend using Nomad if you intend to send large transfers.
 
-![Switch to Nomad](../public/partner-assets/ethereum-to-evmos/use-nomad.png)
-![Enables/Disable Connext](../public/partner-assets/ethereum-to-evmos/toggle-connext.png)
+## Bridging Through Nomad
 
-## Bridge using Nomad
+Bridging assets across chains using Nomad should be intuitive and easy with the Nomad GUI. In this tutorial, we will walk through the steps required to bridge your assets.
 
-Connect to Metamask.
+Please find our production bridge GUI at [app.nomad.xyz](https://app.nomad.xyz/).
+
+If you would like to test our bridge using testnet funds before using real funds, please visit our development GUI at [development.app.nomad.xyz](https://development.app.nomad.xyz/).
+
+<br>
+
+Connect to Metamask:
 
 ![Connect to Metamask](../public/partner-assets/ethereum-to-evmos/connect-metamask.png)
 
 <br>
 
-Select Ethereum as the origin network and Evmos C1 as the destination.
+Select origin and destination networks:
 
-![Select Evmos as Destination](../public/partner-assets/ethereum-to-evmos/select-evmos.png)
 ![Select Origin and Destination Networks](../public/partner-assets/ethereum-to-evmos/select-networks.png)
 
 <br>
@@ -42,19 +40,30 @@ Select Ethereum as the origin network and Evmos C1 as the destination.
 Sending assets to an address you do not control can result in a permanent loss of funds!
 :::
 
-![Change Destination](../public/partner-assets/ethereum-to-evmos/edit-destination-address.png)
-![Paste Destination](../public/partner-assets/ethereum-to-evmos/paste-destination-address.png)
+![Change Destination](../public/partner-assets/ethereum-to-evmos/change-dest-1.png)
+![Paste Destination](../public/partner-assets/ethereum-to-evmos/change-dest-2.png)
 
 <br>
 
-Select the asset you want to send using the asset dropdown menu and the amount you want to send using the input prompt.
+Select the asset you want to send using the asset dropdown menu and the amount you want to send using the input prompt:
 
-![Select an Asset](../public/partner-assets/ethereum-to-evmos/select-asset.png)
-![Enter Amount](../public/partner-assets/ethereum-to-evmos/bridge-with-nomad.png)
+![Select an Asset and Amount](../public/partner-assets/ethereum-to-evmos/select-token.png)
 
 <br>
 
-Click `Bridge Tokens` and approve the transaction in Metamask.
+Click `Next`:
+
+![Select an Asset and Amount](../public/partner-assets/ethereum-to-evmos/input-data.png)
+
+<br>
+
+Review your transaction details and associated fees. Check if Connext liquidity is available for your transfer for a faster bridging experience! If proceeding with Connext, continue reading [here](#fast-transfers-with-connext).
+
+![Approve Bridge Transaction](../public/partner-assets/ethereum-to-evmos/review.png)
+
+<br>
+
+Click `Bridge Tokens` and approve the transaction in Metamask:
 
 ![Approve Bridge Transaction](../public/partner-assets/ethereum-to-evmos/sending.png)
 
@@ -63,16 +72,14 @@ Click `Bridge Tokens` and approve the transaction in Metamask.
 After approving the transaction, you will be taken to the transaction details page. Here, you will see the estimated time remaining for your transfer to complete. Please save your transaction hash for convenience. If you lose it, you can visit your wallet address on the block explorer of the origin network and find the transaction again.
 
 ::: info
-Processing fees are subsidized for Evmos, so your funds will be deposited directly to your address without any further action!
-
-If you bridge **back** to Ethereum, you will need to wait 30-65 minutes and then revisit the Transaction page to complete your transfer and receive your funds on Ethereum.
+You must return to the Transaction Page after bridging has concluded to pay for gas and complete your transfer. Nomad may cover the processing and gas fees for some chains.
 :::
 
-![See Transaction Details](../public/partner-assets/ethereum-to-evmos/pending.png)
+![See Transaction Details](../public/partner-assets/ethereum-to-evmos/transfer-pending.png)
 
 <br>
 
-You can expand the time estimate tab to track your transaction status by clicking the down arrow in the blue box.
+You can expand the time estimate tab to track your transaction status by clicking the down arrow in the blue box:
 
 ![See Expanded Transaction Details](../public/partner-assets/ethereum-to-evmos/expand-status.png)
 
@@ -80,37 +87,33 @@ You can expand the time estimate tab to track your transaction status by clickin
 
 (Optional) If you navigated away from the GUI at any point and want to find your transfer's progress page again, visit [https://app.nomad.xyz/tx](https://app.nomad.xyz/tx) and enter the origin network and your transfer's transaction hash.
 
-![Search Tx](../public/partner-assets/ethereum-to-evmos/search-tx.png)
+![Search Tx](../public/partner-assets/ethereum-to-evmos/search-transfer.png)
 
 <br>
 
-Once your transfer has completed, you should see the below display and your funds will be in the account of your destination address.
+Once your transfer has completed, you should see the below display and your funds will be in the account of your destination address. If your transfer is taking longer than expected, please reach out to us on [Discord](https://discord.gg/RurtmJApqm) in the #support channel:
 
 ![Finished](../public/partner-assets/ethereum-to-evmos/transfer-complete.png)
 
 <br>
 
-You may need to import the token address into your wallet in order to see your funds. The addresses of Nomad assets on Evmos can be found [here](https://docs.nomad.xyz/bridge/domains.html#evmos).
+## Completing a Transfer (Ethereum Destination Only)
 
-If need help with your transfer or have any questions, please reach out to the Nomad team on [Discord](https://discord.gg/RurtmJApqm) in the #support channel.
+If you are sending to Ethereum, there is one additional processing step due to the high cost of processing transactions on Ethereum. You will see the following display and should click "Complete Transfer" and complete the Metamask transaction. After this, your funds should be at your destination on Ethereum!
+
+![Self Process](../public/partner-assets/ethereum-to-evmos/complete-transfer.png)
+
+<br>
 
 ## Fast Transfers with Connext
 
-Fill out transfer details: connect wallet, select token, enter amount, select origin/destination networks and (optional) set destination address.
+Fill out data for your transfer and click "Next." Select "Connext." If there is liquidity available for your transfer, it will calculate associated fees for your transaction. Note that Connext collects gas fees in the asset that is being sent.
 
-Once the input is filled out and valid, the app will check if there is available liquidity via Connext.
+If there is not liquidity available, you can continue by using Nomad.
 
-![Checking availability](../public/partner-assets/ethereum-to-evmos/checking-connext.png)
+![Self Process](../public/partner-assets/ethereum-to-evmos/check-connext.png)
 
-If there is, your screen will look like this. You may proceed with Connext or click "Use Nomad" to switch.
-
-![Connext available](../public/partner-assets/ethereum-to-evmos/connext-available.png)
-
-Click "Preview Send" to see the estimated fees and receive amount. It will take approximately 6-8 seconds for the results to appear.
-
-![Calculating fee](../public/partner-assets/ethereum-to-evmos/calculating-fees.png)
-
-Click `Send Tokens` and approve the transaction in Metamask!
+Click `Send` and approve the transaction in Metamask!
 
 In a few minutes, you will see your transfer appear in a table below. Click "Claim" to submit a transaction to receive your funds on the destination chain.
 
