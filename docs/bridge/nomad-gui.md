@@ -87,7 +87,7 @@ You can expand the time estimate tab to track your transaction status by clickin
 
 (Optional) If you navigated away from the GUI at any point and want to find your transfer's progress page again, visit [https://app.nomad.xyz/tx](https://app.nomad.xyz/tx) and enter the origin network and your transfer's transaction hash.
 
-![Search Tx](../public/tutorials/bridge-gui/search-tx.png)
+![Search Tx](../public/tutorials/bridge-gui/search-transfer.png)
 
 <br>
 
