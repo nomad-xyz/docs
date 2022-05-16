@@ -5,6 +5,39 @@ lang: en-US
 
 # Agent Operations
 
+## Agent Overview
+
+Agents are the off-chain component of the Nomad system, their purpose is to ferry data between the constituent `Domains` that make up the Nomad network. Agents are written in Rust and globally share the following properties: 
+
+- Agents are modeled after a [12-factor app](https://12factor.net/)
+    - Deployable via a Docker container
+    - Configurable via Environment Variables (or a configuration file if necessary)
+    - Suitable for use in Infrastructure automation systems
+- Agents funded Transaction Signers to pay for gas when sending transactions
+- Agents are (optionally) deployable via the [nomad-bridge Helm Chart](https://github.com/nomad-xyz/helm-charts/tree/main/charts/nomad-bridge)
+
+There are 4 production agent roles, with an optional additional agent that is only suitable for use in Development environments: 
+
+- **Updater**
+  - The `Updater` is the most important Agent in regards to *Liveness*. 
+  - The `Updater` issues attestations of merkle root transitions and is bonded to disincentivize fraud.
+  - [Link to Updater Docs](#TODO)
+- **Relayer**
+  - Relays root transitions from home to replica(s)
+  - [Link to Relayer Docs](#TODO) 
+- **Processor** 
+  - The `Processor` is entirely optional, however it implements the property of *subsidized channels*. The `Processor` polls for messages that have reached the expiration of their fraud proof window, and claims them on behalf of the user, obviating the need for the user to do so on their own or pay the required gas. 
+  - The `Processor` can be tuned to look for a subset of messages to process, such that it can be deployed by a particuar xApp operator who would like to subsidize transactions on behalf of the users of their xApp *exclusively*. 
+  - The Nomad Core Team operates processors for most Domains with execution environments that are affordable, with the main notable unsubsidized Domain being Ethereum. 
+  - [Link to Processor Docs](./agent-processor.md) 
+- **Watcher**
+  - The `Watcher` is the most importent Agent in regards to *Safety*. 
+  - The `Watcher` *watches* a designated Home contract and its corresponding replicas on remote domains. It keeps an internal state of root transitions, and if an improper update is detected, it proves it to the protocol -- slashing the Updater and preventing further fraudulant updates from being passed. 
+  - [Link to Processor Docs](./agent-watcher.md) 
+- **Kathy**
+  - `Kathy` (aka Chatty Kathy) is a development agent which sends Nomad messages on an interval in order to test bridge channels. 
+  - It is not advised that you deploy `Kathy` to a production environment as it will spend your hard-earned money with no regards. 
+
 ## Deployment Environments
 
 There will exist several logical deployments of Nomad to enable us to test new code/logic before releasing it to Mainnet. Each environment encompasses the various Home/Replica contracts deployed to many blockchains, as well as the agent deployments and their associated account secrets.
