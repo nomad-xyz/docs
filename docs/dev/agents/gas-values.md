@@ -27,6 +27,12 @@ Improper Update:
 - Using same estimation as `update`
 - `100k + (num_messages * 10k)`
 
+DoubleUpdate:
+
+- Signature check is ~`50k`
+- Double that for two signature checks in double update `100k`
+- Double total for safety to `200k`
+
 <br>
 
 ### Replica
