@@ -45,6 +45,8 @@ To configure an agent, you must populate the proper environment variables. The k
 
 <br>
 
+For more info on our different run environments and key configuration/provisioning, please refer to our [agents operations page](./agent-operations.md).
+
 You can see an example .env file below:
 
 ```
