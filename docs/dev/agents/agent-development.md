@@ -81,3 +81,13 @@ Once you have populated a .env file, running an agent is as simple as running th
 `env $(cat .env | xargs) cargo run --bin <AGENT>`
 
 This will build the codebase and run the specified `<AGENT>` binary (updater, relayer, processor, or watcher) using the provided environment variables.
+
+## Production Builds
+
+It is important when making changes to the Rust codebase, to ensure the Docker build used in production environments still works. You can check this automatically in CI as it is built on every PR ([see docker workflow here](https://github.com/nomad-xyz/rust/blob/main/.github/workflows/docker.yml)), however you can check it much faster usually by attempting to build it locally.
+
+You can build the docker image by running the following script in the `rust` directory:
+
+`./build.sh latest`
+
+If that goes smoothly, you can rest assured it will most likely also work in CI.
