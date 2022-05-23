@@ -25,19 +25,29 @@ To configure an agent, you must populate the proper environment variables. The k
 - Network-specific RPC info:
   - `RPCS_{network}_RPCSTYLE`: What RPC style `network` is; "ethereum" for all EVM chains
   - `RPCS_{network}_CONNECTION_URL`: RPC endpoint url
+- Default RPC info:
+  - `RPCS_DEFAULT_RPCSTYLE`: Default for any network that isn't explicitly configured
 - Network-specific transaction signers:
-  - Hexkey:
+  - Hex key:
     - `TRANSACTIONSIGNERS_{network}_KEY`
-    - Raw 0x-prefixed hexkey
+    - Raw 0x-prefixed hex key
   - AWS Key:
     - `TRANSACTIONSIGNERS_{network}_ID`
     - `TRANSACTIONSIGNERS_{network}_REGION`
     - AWS key id and region
+- Default transaction signers:
+  - Hex key:
+    - `TRANSACTIONSIGNERS_DEFAULT_KEY`
+    - Raw 0x-prefixed hex key
+  - AWS Key:
+    - `TRANSACTIONSIGNERS_DEFAULT_ID`
+    - `TRANSACTIONSIGNERS_DEFAULT_REGION`
+    - AWS key id and region
 - Attestation signer:
   - Required _only_ for updater and watcher
-  - Hexkey:
+  - Hex key:
     - `ATTESTATION_SIGNER_KEY`
-    - Raw 0x-prefixed hexkey
+    - Raw 0x-prefixed hex key
   - AWS Key:
     - `ATTESTATION_SIGNER_ID`
     - `ATTESTATION_SIGNER_REGION`
@@ -56,20 +66,25 @@ RUN_ENV=production
 AGENT_HOME_NAME=ethereum
 AGENT_REPLICA_0_NAME=moonbeam
 
+RPCS_DEFAULT_RPCSTYLE=ethereum
 RPCS_ETHEREUM_RPCSTYLE=ethereum
 RPCS_MOONBEAM_RPCSTYLE=ethereum
 
 RPCS_ETHEREUM_CONNECTION_URL=https://main-light.eth.linkpool.io/
 RPCS_MOONBEAM_CONNECTION_URL=https://rpc.api.moonbeam.network
 
-# can provide tx signer as hexkey
+# can provide tx signer as hex key
+TRANSACTIONSIGNERS_DEFAULT_KEY=0x1111111111111111111111111111111111111111111111111111111111111111
 TRANSACTIONSIGNERS_ETHEREUM_KEY=0x1111111111111111111111111111111111111111111111111111111111111111
 
 # can also provide tx signer as aws key config
+TRANSACTIONSIGNERS_DEFAULT_ID=default_id
 TRANSACTIONSIGNERS_MOONBEAM_ID=dummy_id
+
+TRANSACTIONSIGNERS_DEFAULT_REGION=default_region
 TRANSACTIONSIGNERS_MOONBEAM_REGION=dummy_region
 
-# can provide attestation signer as aws or hexkey
+# can provide attestation signer as aws or hex key
 ATTESTATION_SIGNER_ID=dummy_id
 ATTESTATION_SIGNER_REGION=dummy_region
 ```
