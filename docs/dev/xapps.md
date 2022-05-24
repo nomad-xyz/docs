@@ -6,16 +6,17 @@ lang: en-US
 # Developing Cross-Chain Applications
 
 ::: info
-  A xApp (pronounced "zap") is a cross-chain application built on top of the [Nomad Protocol](../index.md).
+A xApp (pronounced "zap") is a cross-chain application built on top of the [Nomad Protocol](../index.md).
 :::
 
 ## Summary
 
-Nomad sends messages from one chain to another in the form of raw bytes. A cross-chain application that wishes to *use* Nomad will need to define the rules for sending and receiving messages for its use case.
+Nomad sends messages from one chain to another in the form of raw bytes. A cross-chain application that wishes to _use_ Nomad will need to define the rules for sending and receiving messages for its use case.
 
 Each cross-chain application must implement its own messaging protocol. By convention, we call the contracts that implement this protocol the application's **Router contracts.** These Router contracts must:
 
 - **maintain a permissioned set** of the contract(s) on remote chains from which it will accept messages via Nomad — this could be a single owner of the application on one chain; it could be a registry of other applications implementing the same rules on various chains
+- **maintain a permissioned registry of connections** via the `XappConnectionManager` contract (see "Connection Management").
 - **encode messages in a standardized format**, so they can be decoded by the Router contract on the destination chain
 - **handle messages** from remote Router contracts
 - **dispatch messages** to remote Router contracts
@@ -37,11 +38,24 @@ For each type of action,
 
 - in the [xApp Router](https://github.com/nomad-xyz/nomad-monorepo/blob/main/solidity/nomad-xapps/contracts/xapp-template/RouterTemplate.sol)
   - implement a function like doTypeA to initiate the action from one domain to another (add your own parameters and logic)
-  - implement a corresponding _handle function to receive, parse, and execute this type of message on the remote domain
-  - add logic to the handle function to route incoming messages to the appropriate _handle function
+  - implement a corresponding \_handle function to receive, parse, and execute this type of message on the remote domain
+  - add logic to the handle function to route incoming messages to the appropriate \_handle function
 - in the [Message library](https://github.com/nomad-xyz/nomad-monorepo/blob/main/solidity/nomad-xapps/contracts/xapp-template/MessageTemplate.sol),
-  - implement functions to *format* the message to send to the other chain (encodes all necessary information for the action)
-  - implement functions to *parse* the message once it is received on the other chain (decode all necessary information for the action)
+  - implement functions to _format_ the message to send to the other chain (encodes all necessary information for the action)
+  - implement functions to _parse_ the message once it is received on the other chain (decode all necessary information for the action)
+
+### Connection Management
+
+The router implements the [`XappConnectionClient`](https://github.com/nomad-xyz/monorepo/blob/main/packages/contracts-router/contracts/XAppConnectionClient.sol) abstract contract. This contract provides convenience functions for working with a [`XAppConnectionManager`](https://github.com/nomad-xyz/monorepo/blob/main/packages/contracts-core/contracts/XAppConnectionManager.sol).
+
+The XCM is the primary permissioning point for channels. It provides functions by which
+
+- xApp administrators can enroll or unenroll `Replica` contracts for inbound messages
+- xApp administrators can enroll or unenroll a `Home` contract for outbound messages
+- xApp administrators can permission or de-permission watchers
+- watchers can unenroll `Replica` contracts
+
+When deploying a xApp `Router`, the xApp administrators must select an existing XCM, or deploy their own. The address of the XCM must be passed to the router's initialization method.
 
 ### Ping Pong xApp
 
