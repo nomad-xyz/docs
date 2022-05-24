@@ -3,7 +3,7 @@ title: Token Bridge xApp
 lang: en-US
 ---
 
-# Token Bridge xApp 
+# Token Bridge xApp
 
 ## Summary
 
@@ -12,6 +12,10 @@ The Token Bridge xApp implements a bridge that is capable of sending tokens acro
 Features:
 
 - Ensures that circulating token supply remains constant across all chains.
+
+## Limitations
+
+The Token Bridge xApp only supports standard, non-rebasing ERC20-compliant tokens.
 
 ## Protocol
 
@@ -71,7 +75,7 @@ The logical steps and flow of information involved in sending tokens from one ch
   - User calls `send` on the local `BridgeRouter-A`
     - If it's a native token, tokens are pulled from the User's wallet to `BridgeRouter-A` and held in escrow
     - If it's a non-native token, tokens are burned from User's wallet by `BridgeRouter-A`
-      - *Note:* `BridgeRouter-A` can burn non-native tokens because the representative contract for the token on its non-native chain was originally deployed by `BridgeRouter-A` when it received a message sending the token from another chain. The router has administrative rights on representations
+      - _Note:_ `BridgeRouter-A` can burn non-native tokens because the representative contract for the token on its non-native chain was originally deployed by `BridgeRouter-A` when it received a message sending the token from another chain. The router has administrative rights on representations
   - `BridgeRouter-A` constructs a message to `BridgeRouter-B`
     - `BridgeRouter-A` keeps a mapping of `BridgeRouter` contracts on other chains so it knows where to send the message on Chain B
   - `BridgeRouter-A` calls `enqueue` on `Home-A` contract to send the message to Chain B
@@ -87,8 +91,7 @@ The logical steps and flow of information involved in sending tokens from one ch
   - `BridgeRouter-B` sends the token to the recipient
     - If it's a native token, `BridgeRouter-B` sends the tokens from the pool it's holding in escrow
     - If it's a non-native token, `BridgeRouter-B` mints the token to the recipient (
-      - *Note:* `BridgeRouter-B` can mint non-native tokens because the representative contract for the token on its non-native chain is deployed by `BridgeRouter-B` when it received a message sending the token from another chain. The router has administrative rights on representations.
-
+      - _Note:_ `BridgeRouter-B` can mint non-native tokens because the representative contract for the token on its non-native chain is deployed by `BridgeRouter-B` when it received a message sending the token from another chain. The router has administrative rights on representations.
 
 ## Tracing a Message
 
@@ -96,31 +99,48 @@ Nomad is currently still under active development. Because Nomad batches message
 
 What this means for the token bridge is that there is going to be a state of unknown during the time of send and receipt. You can think of this as snail mail without any tracking but with delivery confirmation. The only things that can be confirmed on-chain are:
 
-  1) A transaction was sent on chain A to the BridgeRouter contract
-  2) The recipient addressed received a token mint on chain B
-
+1. A transaction was sent on chain A to the BridgeRouter contract
+2. The recipient addressed received a token mint on chain B
 
 ### Pseudo-tracking
 
 1. Start by locating the `bridgeRouter` contract you are looking for, addresses in the config dir:
 
-  * [Dev Contracts](https://github.com/nomad-xyz/nomad-monorepo/tree/main/rust/config/development)
-  * [Staging Contracts](https://github.com/nomad-xyz/nomad-monorepo/tree/main/rust/config/staging)
-  * [Prod Contracts](https://github.com/nomad-xyz/nomad-monorepo/tree/main/rust/config/mainnet)
+- [Dev Contracts](https://github.com/nomad-xyz/nomad-monorepo/tree/main/rust/config/development)
+- [Staging Contracts](https://github.com/nomad-xyz/nomad-monorepo/tree/main/rust/config/staging)
+- [Prod Contracts](https://github.com/nomad-xyz/nomad-monorepo/tree/main/rust/config/mainnet)
 
 2. Verify that a transaction was sent to the BridgeRouter contract on the Home chain
-   * _Wait time_: dependent on block confirmation times for each chain
+
+   - _Wait time_: dependent on block confirmation times for each chain
 
 3. Verify a transaction was sent on the Home contract
-   * _Wait time_: dependent on block confirmation for each chain, but should be shortly after transaction is sent to BridgeRouter contract
-   * There is not a way to query for a particular transactions at this time. Cross-check timestamps with BridgeRouter transaction.
+
+   - _Wait time_: dependent on block confirmation for each chain, but should be shortly after transaction is sent to BridgeRouter contract
+   - There is not a way to query for a particular transactions at this time. Cross-check timestamps with BridgeRouter transaction.
 
 4. After acceptance period, verify a transaction was sent on the destination Replica
-   * _Wait time_: acceptance period. Currently ~3 hours
-   * Cross-check timestamps
+
+   - _Wait time_: acceptance period. Currently 30 minutes
+   - Cross-check timestamps
 
 5. Verify a transaction was sent on the destination BridgeRouter
-   * _Wait time_: acceptance period + block confirmation time 
+
+   - _Wait time_: acceptance period + block confirmation time
 
 6. Verify that the recipient address received a token mint
    1. _Wait time_: block confirmation time for chain A + acceptance period + block confirmation time for chain B
+
+## The Token Registry
+
+The Token Bridge xApp relies on a [`TokenRegistry`](https://github.com/nomad-xyz/monorepo/blob/main/packages/contracts-bridge/contracts/TokenRegistry.sol) smart contract. This contract handles mapping canonical Nomad token identifiers to their local representation (or native local deployment) and vice versa.
+
+For most tokens there is a 1:1 relationship between the canonical identifier and the local version. Regrettably, tokens are not always that simple. The token registry allows us to support more complex use cases by adjusting the relationship between identifiers and local tokens.
+
+### Custom Tokens
+
+To support teams desiring specific token functionality, the registry supports enrolling "custom" tokens. Governance may instruct the token registry to change the official local representation of a token to a new address. Any ERC20-compliant contract that allows the Bridge Router to mint & burn tokens may be enrolled as a custom token.
+
+When a custom token is enrolled, that token no longer has a 1:1 correspondence between local representation and canonical identifier. Instead, there are >1 local representations. Incoming transfers mint the **latest** representation (the most recently enrolled custom token), while outgoing transfer may burn **any** previous representation. This ensures that users' tokens are never invalidated, but new users get the best version.
+
+For convenience, we also expose a `migrate` function that allows users to immediately exchange any previous representation for the **latest** representation. This allows a user to upgrade outdated representations and receive the latest without dispatching a cross-chain message.
