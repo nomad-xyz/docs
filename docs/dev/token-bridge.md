@@ -121,7 +121,7 @@ What this means for the token bridge is that there is going to be a state of unk
 
 4. After acceptance period, verify a transaction was sent on the destination Replica
 
-   - _Wait time_: acceptance period. Currently ~3 hours
+   - _Wait time_: acceptance period. Currently 30 minutes
    - Cross-check timestamps
 
 5. Verify a transaction was sent on the destination BridgeRouter
