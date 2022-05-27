@@ -43,10 +43,9 @@ The replica contract is responsible for managing optimistic replication and disp
 3. Accept double-update proofs
 4. Validate message proofs
 5. Enforce the message format
-6. Ensure messages are processed in order
-7. Dispatch messages to their destination
-8. Expose a "disconnect" feature
-9. Future: recover from `FAILED` state
+6. Dispatch messages to their destination
+7. Expose a "disconnect" feature
+8. Future: recover from `FAILED` state
 
 ### Off-chain (Agents)
 
