@@ -144,3 +144,13 @@ To support teams desiring specific token functionality, the registry supports en
 When a custom token is enrolled, that token no longer has a 1:1 correspondence between local representation and canonical identifier. Instead, there are >1 local representations. Incoming transfers mint the **latest** representation (the most recently enrolled custom token), while outgoing transfer may burn **any** previous representation. This ensures that users' tokens are never invalidated, but new users get the best version.
 
 For convenience, we also expose a `migrate` function that allows users to immediately exchange any previous representation for the **latest** representation. This allows a user to upgrade outdated representations and receive the latest without dispatching a cross-chain message.
+
+### Dust
+
+We provide the users with `dust` in order to facilitate their onboarding to the chain (all chains apart from Ethereum).
+
+We provide no guarantees to the end users that they will necessarily receive gas from the Dust feature. We provide it in **good faith** that it won't be abused and will be used by users who need it.
+
+Dust is donated by people who are incentivized for users to have gas after they bridge. Large $$$ values of dust should not be donated at any given time and we are actively talking with teams to avoid doing so.
+
+It is hoped that the gas is used for genuine users, but not a concern if the gas is used improperly, as it should be of negligible importance to the donor.
