@@ -78,7 +78,6 @@ __It performs the following functions:__
 - Accept double-update proofs
 - Validate message inclusion proofs
 - Enforce the message format
-- Ensure messages are processed in order
 - Dispatch messages to their destination
 
 ## Off-chain (Agents)
