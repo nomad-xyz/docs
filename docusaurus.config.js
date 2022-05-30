@@ -25,11 +25,11 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        },
+        blog: {
+          routeBasePath: '/guides'
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -41,23 +41,44 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+      },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'YOUR_APP_ID',
+
+        // Public API key: it is safe to commit it
+        apiKey: 'YOUR_SEARCH_API_KEY',
+
+        indexName: 'YOUR_INDEX_NAME',
+
+        // Optional: see doc section below
+        contextualSearch: true,
+
+        // Optional: Algolia search parameters
+        searchParameters: {},
+
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: 'search',
+
+      },
       navbar: {
-        title: 'Nomad Docs',
         logo: {
           alt: 'Nomad Logo',
-          src: 'img/logo.svg',
+          src: 'img/logob.svg',
+          srcDark: 'img/logow.svg'
         },
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'Guides',
+            label: 'Docs',
+            to: '/intro',
           },
           {
-            href: 'https://github.com/nomad-xyz',
-            label: '𓂀 GitHub',
-            position: 'right',
+            label: 'Guides',
+            to: '/guides',
           },
           {
             href: 'https://app.nomad.xyz',
@@ -72,14 +93,13 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
         links: [
           {
             title: 'Docs',
             items: [
               {
                 label: 'Guides',
-                to: '/docs/guides',
+                to: '/guides',
               },
               {
                 label: 'Reference Documentation',
@@ -92,7 +112,7 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'discord.gg/nomadxyz',
+                href: 'https://discord.gg/nomadxyz',
               },
               {
                 label: 'Twitter',
@@ -102,7 +122,7 @@ const config = {
           },
           {
             title: 'Other',
-            items:[
+            items: [
               {
                 label: 'GitHub',
                 href: 'https://github.com/nomad-xyz/docs',
