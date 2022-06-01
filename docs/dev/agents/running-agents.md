@@ -15,45 +15,70 @@ Our hosted JSON configs provide public network info such as contract addresses a
 
 To configure an agent, you must populate the proper environment variables. The key fields one must specify are:
 
-- Run environment:
+- **Run Environment**
   - `RUN_ENV`: Development, staging, or production
-- Agent home:
+- **Agent Home**
   - `AGENT_HOME_NAME`: What home the agent is running against
-- Agent replicas:
-  - `AGENT_REPLICA_0_NAME`, `AGENT_REPLICA_1_NAME`, `AGENT_REPLICA_2_NAME`, etc...
-  - What replica(s) the agent will run against
-- Network-specific RPC info:
-  - `RPCS_{network}_RPCSTYLE`: What RPC style `network` is; "ethereum" for all EVM chains
-  - `RPCS_{network}_CONNECTION_URL`: RPC endpoint url
-- Default RPC info:
-  - `RPCS_DEFAULT_RPCSTYLE`: Default for any network that isn't explicitly configured
-- Network-specific transaction signers:
-  - Hex key:
-    - `TRANSACTIONSIGNERS_{network}_KEY`
-    - Raw 0x-prefixed hex key
-  - AWS Key:
-    - `TRANSACTIONSIGNERS_{network}_ID`
-    - `TRANSACTIONSIGNERS_{network}_REGION`
-    - AWS key id and region
-- Default transaction signers:
-  - Hex key:
-    - `TRANSACTIONSIGNERS_DEFAULT_KEY`
-    - Raw 0x-prefixed hex key
-  - AWS Key:
-    - `TRANSACTIONSIGNERS_DEFAULT_ID`
-    - `TRANSACTIONSIGNERS_DEFAULT_REGION`
-    - AWS key id and region
-- Attestation signer:
+- **Agent Replicas**
+
+  - Specify networks:
+    - `AGENT_REPLICA_0_NAME`, `AGENT_REPLICA_1_NAME`, `AGENT_REPLICA_2_NAME`, etc...
+    - What replica(s) the agent will run against
+  - Default to all connected networks:
+    - `AGENT_REPLICAS_ALL`
+    - Expects all connected replicas if `true`
+    - Expects specified networks if `false` or not set
+
+- **RPC Info**
+  - Network-specific:
+    - `{network}_RPCSTYLE`: What RPC style `network` is; "ethereum" for all EVM chains
+    - `{network}_CONNECTION_URL`: RPC endpoint url
+  - Default:
+    - `DEFAULT_RPCSTYLE`: Default rpc style for any network not explicitly configured
+- **Transaction Submission Info**
+  - Network-specific:
+    - Transaction Submission Type:
+      - `{network}_SUBMITTER_TYPE`
+      - `local` for local signing/submitting
+      - `gelato` if you are integrated with Gelato Relay
+    - Local Submission:
+      - Transaction signer key:
+        - Hex key:
+          - `{network}_TXSIGNER_KEY`
+          - Raw 0x-prefixed hex key
+        - AWS Key:
+          - `{network}_TXSIGNER_ID`
+          - AWS key id
+    - Gelato Submission (ignore if you do not plan on using Gelato Relay):
+      - Sponsor signer:
+        - Hex key:
+          - `{network}_GELATO_SPONSOR_KEY`
+          - Raw 0x-prefixed hex key
+        - AWS Key:
+          - `{network}_GELATO_SPONSOR_ID`
+          - AWS key id
+      - Fee token
+        - `{network}_GELATO_SPONSOR_FEETOKEN`
+        - 0x-prefixed token contract address
+  - Default:
+    - Default for any network not explicitly configured
+    - Same as network-specific (above) but replacing specific `{network}` with `DEFAULT`
+    - Example:
+      - `DEFAULT_SUBMITTER_TYPE=local`
+      - `DEFAULT_TXSIGNER_ID=some_aws_id`
+      - All networks use `local` transaction submission with the default txsigner key
+- **Attestation Signer (optional)**
   - Required _only_ for updater and watcher
   - Hex key:
     - `ATTESTATION_SIGNER_KEY`
     - Raw 0x-prefixed hex key
   - AWS Key:
     - `ATTESTATION_SIGNER_ID`
-    - `ATTESTATION_SIGNER_REGION`
-    - AWS key id and region
+    - AWS key id
 
 <br>
+
+Note that default values are only used if a network-specific value is not provided. In other words, network-specific values override the default if both are provided.
 
 For more info on our different run environments and key configuration/provisioning, please refer to our [agents operations page](./agent-operations.md).
 
@@ -61,32 +86,28 @@ You can see an example .env file below:
 
 ```
 # Only runs agent for Ethereum <> Moonbeam channel (production)
-
 RUN_ENV=production
 AGENT_HOME_NAME=ethereum
 AGENT_REPLICA_0_NAME=moonbeam
 
-RPCS_DEFAULT_RPCSTYLE=ethereum
-RPCS_ETHEREUM_RPCSTYLE=ethereum
-RPCS_MOONBEAM_RPCSTYLE=ethereum
+# can provide default rpc style for all networks, or specify network specific
+# network-specific values always override the default
+DEFAULT_RPCSTYLE=ethereum
+ETHEREUM_RPCSTYLE=ethereum
+MOONBEAM_RPCSTYLE=ethereum
 
-RPCS_ETHEREUM_CONNECTION_URL=https://main-light.eth.linkpool.io/
-RPCS_MOONBEAM_CONNECTION_URL=https://rpc.api.moonbeam.network
+# provide network-specific RPC endpoints
+ETHEREUM_CONNECTION_URL=https://main-light.eth.linkpool.io/
+MOONBEAM_CONNECTION_URL=https://rpc.api.moonbeam.network
 
-# can provide tx signer as hex key
-TRANSACTIONSIGNERS_DEFAULT_KEY=0x1111111111111111111111111111111111111111111111111111111111111111
-TRANSACTIONSIGNERS_ETHEREUM_KEY=0x1111111111111111111111111111111111111111111111111111111111111111
-
-# can also provide tx signer as aws key config
-TRANSACTIONSIGNERS_DEFAULT_ID=default_id
-TRANSACTIONSIGNERS_MOONBEAM_ID=dummy_id
-
-TRANSACTIONSIGNERS_DEFAULT_REGION=default_region
-TRANSACTIONSIGNERS_MOONBEAM_REGION=dummy_region
+# can provide tx signer as hex key (for ethereum) or aws key (for moonbeam)
+# again, default tx signer is overriden by network-specifics
+DEFAULT_TXSIGNER_KEY=0x1111111111111111111111111111111111111111111111111111111111111111
+ETHEREUM_TXSIGNER_KEY=0x1111111111111111111111111111111111111111111111111111111111111111
+MOONBEAM_TXSIGNER_ID=dummy_id
 
 # can provide attestation signer as aws or hex key
 ATTESTATION_SIGNER_ID=dummy_id
-ATTESTATION_SIGNER_REGION=dummy_region
 ```
 
 If you would like to configure an agent to run against all connected networks (against all replicas the home is connected to), see [this example](https://github.com/nomad-xyz/rust/blob/main/fixtures/env.test). For more examples of .env files, see our [test fixtures folder](https://github.com/nomad-xyz/rust/tree/main/fixtures).
