@@ -33,7 +33,7 @@ There are 4 production agent roles, with an optional additional agent that is on
 - **Watcher**
   - The `Watcher` is the most importent Agent in regards to *Safety*. 
   - The `Watcher` *watches* a designated Home contract and its corresponding replicas on remote domains. It keeps an internal state of root transitions, and if an improper update is detected, it proves it to the protocol -- slashing the Updater and preventing further fraudulant updates from being passed. 
-  - [Link to Processor Docs](./agent-watcher.md) 
+  - [Link to Watcher Docs](./agent-watcher.md) 
 - **Kathy**
   - `Kathy` (aka Chatty Kathy) is a development agent which sends Nomad messages on an interval in order to test bridge channels. 
   - It is not advised that you deploy `Kathy` to a production environment as it will spend your hard-earned money with no regards. 
@@ -53,11 +53,11 @@ Purpose: Allows us to test changes to contracts and agents. *Bugs should be foun
 - Agent Infrastructure: Nomad core team will operate agent infrastructure for this.
 - Node Infrastructure: Forno/Infura
 - Agent Deployments: Automatic, continuous deployment
-- Contract Deployments: Automatic, with human intervention required for updating the **upgradeBeacon**.
+- Contract Deployments: Automatic, with human intervention required for updating the [UpgradeBeacon](../upgrade-setup.md).
 
 **Current Dev Contract Deployment:**
 
-[development](https://github.com/nomad-xyz/nomad-monorepo/rust/config/development/)
+[Development](https://github.com/nomad-xyz/rust/tree/main/configuration/configs/development.json)
 
 ### Staging
 
@@ -68,11 +68,11 @@ Purpose: Allows us to test the full-stack integration, specifically surrounding 
 - Agent Infrastructure: Agent operations will be decentralized
 - Node Infrastructure: Node infrastructure will be decentralized
 - Agent Deployments: Determined by whoever is running the agents
-- Contract Deployments: Automatic, with human intervention required for updating the **upgradeBeacon**.
+- Contract Deployments: Automatic, with human intervention required for updating the  [UpgradeBeacon](../upgrade-setup.md).
 
 **Current Staging Contract Deployment:**
 
-[staging](https://github.com/nomad-xyz/nomad-monorepo/rust/config/staging/)
+[Staging](https://github.com/nomad-xyz/rust/tree/main/configuration/configs/staging.json)
 
 ### Production
 
@@ -87,7 +87,7 @@ Purpose: Where the magic happens, **things should not break here.**
 
 **Current Production Contract Deployment:**
 
-[mainnet](https://github.com/nomad-xyz/nomad-monorepo/rust/config/mainnet/)
+[Production](https://github.com/nomad-xyz/rust/tree/main/configuration/configs/production.json)
 
 ## Key Material
 
@@ -97,7 +97,7 @@ At the outset, the Nomad team will have full control over agent keys, and any co
 
 ### Provision KMS Keys
 
-There exists a script in the monorepo [(`rust/provision_kms_keys.py`)](https://github.com/nomad-xyz/nomad-monorepo/blob/main/rust/provision_kms_keys.py) that facilitates KMS key provisioning for agent roles.
+There exists a script in the Rust repo [`provision_kms_keys.py`](hhttps://github.com/nomad-xyz/rust/blob/main/provision_kms_keys.py) that facilitates KMS key provisioning for agent roles.
 
 The script will produce a single set of keys per "environment." Where an __environment__ is a logical set of smart contract deployments, as documented [here](#deployment-environments). By default there are two environments configured, `staging` and `production`.
 
