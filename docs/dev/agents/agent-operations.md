@@ -7,36 +7,36 @@ lang: en-US
 
 ## Agent Overview
 
-Agents are the off-chain component of the Nomad system, their purpose is to ferry data between the constituent `Domains` that make up the Nomad network. Agents are written in Rust and globally share the following properties: 
+Agents are the off-chain component of the Nomad system, their purpose is to ferry data between the constituent `Domains` that make up the Nomad network. Agents are written in Rust and globally share the following properties:
 
 - Agents are modeled after a [12-factor app](https://12factor.net/)
-    - Deployable via a Docker container
-    - Configurable via Environment Variables (or a configuration file if necessary)
-    - Suitable for use in Infrastructure automation systems
+  - Deployable via a Docker container
+  - Configurable via Environment Variables (or a configuration file if necessary)
+  - Suitable for use in Infrastructure automation systems
 - Agents funded Transaction Signers to pay for gas when sending transactions
 - Agents are (optionally) deployable via the [nomad-bridge Helm Chart](https://github.com/nomad-xyz/helm-charts/tree/main/charts/nomad-bridge)
 
-There are 4 production agent roles, with an optional additional agent that is only suitable for use in Development environments: 
+There are 4 production agent roles, with an optional additional agent that is only suitable for use in Development environments:
 
 - **Updater**
-  - The `Updater` is the most important Agent in regards to *Liveness*. 
+  - The `Updater` is the most important Agent in regards to _Liveness_.
   - The `Updater` issues attestations of merkle root transitions and is bonded to disincentivize fraud.
   - [Link to Updater Docs](./agent-updater.md)
 - **Relayer**
   - Relays root transitions from home to replica(s)
   - [Link to Relayer Docs](./agent-relayer.md)
-- **Processor** 
-  - The `Processor` is entirely optional, however it implements the property of *subsidized channels*. The `Processor` polls for messages that have reached the expiration of their fraud proof window, and claims them on behalf of the user, obviating the need for the user to do so on their own or pay the required gas. 
-  - The `Processor` can be tuned to look for a subset of messages to process, such that it can be deployed by a particuar xApp operator who would like to subsidize transactions on behalf of the users of their xApp *exclusively*. 
-  - The Nomad Core Team operates processors for most Domains with execution environments that are affordable, with the main notable unsubsidized Domain being Ethereum. 
-  - [Link to Processor Docs](./agent-processor.md) 
+- **Processor**
+  - The `Processor` is entirely optional, however it implements the property of _subsidized channels_. The `Processor` polls for messages that have reached the expiration of their fraud proof window, and claims them on behalf of the user, obviating the need for the user to do so on their own or pay the required gas.
+  - The `Processor` can be tuned to look for a subset of messages to process, such that it can be deployed by a particuar xApp operator who would like to subsidize transactions on behalf of the users of their xApp _exclusively_.
+  - The Nomad Core Team operates processors for most Domains with execution environments that are affordable, with the main notable unsubsidized Domain being Ethereum.
+  - [Link to Processor Docs](./agent-processor.md)
 - **Watcher**
-  - The `Watcher` is the most importent Agent in regards to *Safety*. 
-  - The `Watcher` *watches* a designated Home contract and its corresponding replicas on remote domains. It keeps an internal state of root transitions, and if an improper update is detected, it proves it to the protocol -- slashing the Updater and preventing further fraudulant updates from being passed. 
-  - [Link to Watcher Docs](./agent-watcher.md) 
+  - The `Watcher` is the most importent Agent in regards to _Safety_.
+  - The `Watcher` _watches_ a designated Home contract and its corresponding replicas on remote domains. It keeps an internal state of root transitions, and if an improper update is detected, it proves it to the protocol -- slashing the Updater and preventing further fraudulant updates from being passed.
+  - [Link to Watcher Docs](./agent-watcher.md)
 - **Kathy**
-  - `Kathy` (aka Chatty Kathy) is a development agent which sends Nomad messages on an interval in order to test bridge channels. 
-  - It is not advised that you deploy `Kathy` to a production environment as it will spend your hard-earned money with no regards. 
+  - `Kathy` (aka Chatty Kathy) is a development agent which sends Nomad messages on an interval in order to test bridge channels.
+  - It is not advised that you deploy `Kathy` to a production environment as it will spend your hard-earned money with no regards.
 
 ## Deployment Environments
 
@@ -46,7 +46,7 @@ The environments have various purposes and can be described as follows:
 
 ### Development
 
-Purpose: Allows us to test changes to contracts and agents. *Bugs should be found here.*
+Purpose: Allows us to test changes to contracts and agents. _Bugs should be found here._
 
 - Deployed against testnets
 - Agent Accounts: HexKeys stored in a secret manager for ease of rotation/access
@@ -61,14 +61,14 @@ Purpose: Allows us to test changes to contracts and agents. *Bugs should be foun
 
 ### Staging
 
-Purpose: Allows us to test the full-stack integration, specifically surrounding the KMS access control and federated secret management. *Issues with process should be found here.*
+Purpose: Allows us to test the full-stack integration, specifically surrounding the KMS access control and federated secret management. _Issues with process should be found here._
 
 - Deployed against testnets, mirrors Mainnet deployment.
 - Agent Accounts: KMS-provisioned keys
 - Agent Infrastructure: Agent operations will be decentralized
 - Node Infrastructure: Node infrastructure will be decentralized
 - Agent Deployments: Determined by whoever is running the agents
-- Contract Deployments: Automatic, with human intervention required for updating the  [UpgradeBeacon](../upgrade-setup.md).
+- Contract Deployments: Automatic, with human intervention required for updating the [UpgradeBeacon](../upgrade-setup.md).
 
 **Current Staging Contract Deployment:**
 
@@ -76,14 +76,14 @@ Purpose: Allows us to test the full-stack integration, specifically surrounding 
 
 ### Production
 
-Purpose: Where the magic happens, **things should not break here.** 
+Purpose: Where the magic happens, **things should not break here.**
 
 - Deployed against Mainnets
 - Agent Accounts: KMS-provisioned keys
 - Agent Infrastructure: Agent operations will be decentralized
 - Node Infrastructure: Node infrastructure will be decentralized
 - Agent Deployments: Determined by whoever is running the agents
-- Contract Deployments: ***Manual*** - Existing tooling can be used, but deploys will be gated and require approval as contract deployments are expensive on Mainnet.
+- Contract Deployments: **_Manual_** - Existing tooling can be used, but deploys will be gated and require approval as contract deployments are expensive on Mainnet.
 
 **Current Production Contract Deployment:**
 
@@ -91,15 +91,15 @@ Purpose: Where the magic happens, **things should not break here.**
 
 ## Key Material
 
-Keys for Staging and Production environments will be stored in AWS KMS, which is a highly flexible solution in terms of granting access. It guarantees nobody will ever have access to the key material itself, while still allowing granular permissions over access to remote signing. 
+Keys for Staging and Production environments will be stored in AWS KMS, which is a highly flexible solution in terms of granting access. It guarantees nobody will ever have access to the key material itself, while still allowing granular permissions over access to remote signing.
 
 At the outset, the Nomad team will have full control over agent keys, and any contracted party will simply be granted access through existing IAM tooling/roles.
 
 ### Provision KMS Keys
 
-There exists a script in the Rust repo [`provision_kms_keys.py`](hhttps://github.com/nomad-xyz/rust/blob/main/provision_kms_keys.py) that facilitates KMS key provisioning for agent roles.
+There exists a script in the Rust repo [`provision_kms_keys.py`](https://github.com/nomad-xyz/rust/blob/main/provision_kms_keys.py) that facilitates KMS key provisioning for agent roles.
 
-The script will produce a single set of keys per "environment." Where an __environment__ is a logical set of smart contract deployments, as documented [here](#deployment-environments). By default there are two environments configured, `staging` and `production`.
+The script will produce a single set of keys per "environment." Where an **environment** is a logical set of smart contract deployments, as documented [here](#deployment-environments). By default there are two environments configured, `staging` and `production`.
 
 #### Keys Explained
 
@@ -109,11 +109,12 @@ One signer key should be provisioned for each agent per-network. These keys are 
 
 **Attestation Signers**
 
-One additional key is provisioned for both the Watcher and Updater Agents. The Updater uses its key to sign updates to its assigned Home contract, while the Watcher uses its key to sign fraud proofs when it observes the Updater commiting fraud. 
+One additional key is provisioned for both the Watcher and Updater Agents. The Updater uses its key to sign updates to its assigned Home contract, while the Watcher uses its key to sign fraud proofs when it observes the Updater commiting fraud.
 
-Note: Attestation signer addresses are used as input to the contract deployment process. They can be configured in the `nomad-deploy` package [like so](https://github.com/nomad-xyz/nomad-monorepo/blob/main/typescript/nomad-deploy/config/testnets/kovan.ts#L28-L30). 
+Note: Attestation signer addresses are used as input to the contract deployment process. They can be configured in the `nomad-deploy` package [like so](https://github.com/nomad-xyz/nomad-monorepo/blob/main/typescript/nomad-deploy/config/testnets/kovan.ts#L28-L30).
 
-You may configure the script to generate arbitrary signer keys on a per-environment basis. 
+You may configure the script to generate arbitrary signer keys on a per-environment basis.
+
 ```python
 # Agent Keys
 agent_keys = {
@@ -137,7 +138,8 @@ agent_keys = {
 }
 ```
 
-Additionally, the supported networks for each environment are configured below. 
+Additionally, the supported networks for each environment are configured below.
+
 ```python
 networks = {
     "production": [
@@ -147,21 +149,20 @@ networks = {
     ],
     "staging": [
         "moonbasealpha",
-        "kovan"    
+        "kovan"
     ]
 }
 ```
 
-
 #### Run the Key Provisioning Script
 
 ```bash
-AWS_ACCESS_KEY_ID=accesskey AWS_SECRET_ACCESS_KEY=secretkey python3 provision_kms_keys.py  
+AWS_ACCESS_KEY_ID=accesskey AWS_SECRET_ACCESS_KEY=secretkey python3 provision_kms_keys.py
 ```
 
-If the required keys are not present, the script will generate them. If they keys _are_ present, their information will be fetched and displayed non-destructively. 
+If the required keys are not present, the script will generate them. If they keys _are_ present, their information will be fetched and displayed non-destructively.
 
-Upon successful operation, the script will output a table of the required keys, their ARNs, ETH addresses (for funding the accounts), and their regions. 
+Upon successful operation, the script will output a table of the required keys, their ARNs, ETH addresses (for funding the accounts), and their regions.
 
 #### Provision IAM Policies and Users
 
@@ -181,6 +182,7 @@ The following sequence describes how to set up IAM policies staging and producti
   - kms-admin
   - Save IAM credential CSV
 - Create staging signer policies
+
   - staging-processor-signer
   - staging-relayer-signer
   - staging-updater-signer
@@ -188,25 +190,22 @@ The following sequence describes how to set up IAM policies staging and producti
   - With the following policy, modified appropriately:
 
   ```json
-    {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Sid": "NomadStagingPolicy",
-          "Effect": "Allow",
-          "Action": [
-            "kms:GetPublicKey",
-            "kms:Sign"
-          ],
-          "Resource": "arn:aws:kms:*:11111111111:key/*",
-          "Condition": {
-            "ForAnyValue:StringLike": {
-              "kms:ResourceAliases": "alias/staging-processor*"
-            }
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "NomadStagingPolicy",
+        "Effect": "Allow",
+        "Action": ["kms:GetPublicKey", "kms:Sign"],
+        "Resource": "arn:aws:kms:*:11111111111:key/*",
+        "Condition": {
+          "ForAnyValue:StringLike": {
+            "kms:ResourceAliases": "alias/staging-processor*"
           }
         }
-      ]
-    }
+      }
+    ]
+  }
   ```
 
   - production-processor-signer
@@ -216,61 +215,58 @@ The following sequence describes how to set up IAM policies staging and producti
   - With the following policy, modified appropriately:
 
   ```json
-    {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Sid": "NomadProductionPolicy",
-          "Effect": "Allow",
-          "Action": [
-            "kms:GetPublicKey",
-            "kms:Sign"
-          ],
-          "Resource": "arn:aws:kms:*:11111111111:key/*",
-          "Condition": {
-            "ForAnyValue:StringLike": {
-              "kms:ResourceAliases": "alias/production-processor*"
-            }
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "NomadProductionPolicy",
+        "Effect": "Allow",
+        "Action": ["kms:GetPublicKey", "kms:Sign"],
+        "Resource": "arn:aws:kms:*:11111111111:key/*",
+        "Condition": {
+          "ForAnyValue:StringLike": {
+            "kms:ResourceAliases": "alias/production-processor*"
           }
         }
-      ]
-    }
-    ```
+      }
+    ]
+  }
+  ```
 
 - Create kms-admin policy
 
   ```json
-    {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Sid": "KMSAdminPolicy",
-          "Effect": "Allow",
-          "Action": [
-            "kms:DescribeCustomKeyStores",
-            "kms:ListKeys",
-            "kms:DeleteCustomKeyStore",
-            "kms:GenerateRandom",
-            "kms:UpdateCustomKeyStore",
-            "kms:ListAliases",
-            "kms:DisconnectCustomKeyStore",
-            "kms:CreateKey",
-            "kms:ConnectCustomKeyStore",
-            "kms:CreateCustomKeyStore"
-          ],
-          "Resource": "*"
-        },
-        {
-          "Sid": "VisualEditor1",
-          "Effect": "Allow",
-          "Action": "kms:*",
-          "Resource": [
-            "arn:aws:kms:*:756467427867:alias/*",
-            "arn:aws:kms:*:756467427867:key/*"
-          ]
-        }
-      ]
-    }
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "KMSAdminPolicy",
+        "Effect": "Allow",
+        "Action": [
+          "kms:DescribeCustomKeyStores",
+          "kms:ListKeys",
+          "kms:DeleteCustomKeyStore",
+          "kms:GenerateRandom",
+          "kms:UpdateCustomKeyStore",
+          "kms:ListAliases",
+          "kms:DisconnectCustomKeyStore",
+          "kms:CreateKey",
+          "kms:ConnectCustomKeyStore",
+          "kms:CreateCustomKeyStore"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Sid": "VisualEditor1",
+        "Effect": "Allow",
+        "Action": "kms:*",
+        "Resource": [
+          "arn:aws:kms:*:756467427867:alias/*",
+          "arn:aws:kms:*:756467427867:key/*"
+        ]
+      }
+    ]
+  }
   ```
 
   - Create IAM groups
@@ -284,23 +280,24 @@ The following sequence describes how to set up IAM policies staging and producti
 
 ## Funding Addresses
 
-Each agent should be configured with a unique wallet to be used to signing transactions and paying gas. In order to automate the process of monitoring and topping up agent wallets, the Nomad core team built a CLI tool called [The Keymaster](the-keymaster.md). 
+Each agent should be configured with a unique wallet to be used to signing transactions and paying gas. In order to automate the process of monitoring and topping up agent wallets, the Nomad core team built a CLI tool called [The Keymaster](the-keymaster.md).
 
-The Keymaster, upon configuration, enables the manual one-off topping up of agent wallets on an arbitrary number of netorks. Additionally, it is capable of running this functionality as a service, topping up accounts on an interval and exposing prometheus metrics about the addresses it is monitoring for use in dashboards. 
+The Keymaster, upon configuration, enables the manual one-off topping up of agent wallets on an arbitrary number of netorks. Additionally, it is capable of running this functionality as a service, topping up accounts on an interval and exposing prometheus metrics about the addresses it is monitoring for use in dashboards.
 
 ## Self-Service Proofs in S3
 
-In order to facilitate users processing their own proofs in the GUI, agents (specifically the Processor), have the functionality to upload raw proofs to an AWS S3 bucket. In the default configuration, the bucket is publicly accessible and allows end-users to fetch them via the GUI and submit them in a transaction to the apropriate blockchain. 
+In order to facilitate users processing their own proofs in the GUI, agents (specifically the Processor), have the functionality to upload raw proofs to an AWS S3 bucket. In the default configuration, the bucket is publicly accessible and allows end-users to fetch them via the GUI and submit them in a transaction to the apropriate blockchain.
 
-### Pre-Requisites 
-- AWS Account 
+### Pre-Requisites
+
+- AWS Account
 - Agent Infrastructure
 
-### Bucket Setup 
+### Bucket Setup
 
 Setup is simple, create a bucket in your desired region via the AWS UI, ensuring to uncheck "Block Public Access" as the desired outcome is for the contents of this bucket to be publicly accessible on the internet.
 
-Use the following bucket policy to enable public access to `s3:getObject` in your newly created bucket: 
+Use the following bucket policy to enable public access to `s3:getObject` in your newly created bucket:
 
 ```
 {
@@ -320,9 +317,9 @@ Use the following bucket policy to enable public access to `s3:getObject` in you
 
 ### AWS IAM Permissions
 
-NOTE: Currently, Agents only support a single AWS key for both KMS Signing and S3 Upload. This enforces a non-functional requirement that the S3 bucket proofs are uploaded to and the KMS keys used to sign transactions are in the same logical AWS account. 
+NOTE: Currently, Agents only support a single AWS key for both KMS Signing and S3 Upload. This enforces a non-functional requirement that the S3 bucket proofs are uploaded to and the KMS keys used to sign transactions are in the same logical AWS account.
 
-Create an IAM policy that allows a user to write to the S3 bucket you created in the previous step: 
+Create an IAM policy that allows a user to write to the S3 bucket you created in the previous step:
 
 ```
 {
@@ -354,19 +351,19 @@ Attach this policy to an IAM user and provision/download AWS keys.
 
 ### Configuring the Agent
 
-The Processor agent has special config for S3 proof indexing, located in the code [here](https://github.com/nomad-xyz/nomad-monorepo-archive/blob/main/rust/agents/processor/src/settings.rs#L9-L24). 
+The Processor agent has special config for S3 proof indexing, located in the code [here](https://github.com/nomad-xyz/nomad-monorepo-archive/blob/main/rust/agents/processor/src/settings.rs#L9-L24).
 
-Buckets can be configured at agent runtime via the following environment variables: 
+Buckets can be configured at agent runtime via the following environment variables:
 
 `OPT_PROCESSOR_S3_BUCKET` -> Name of the bucket. Ex. `nomadxyz-development-proofs`
 `OPT_PROCESSOR_S3_REGION` -> AWS region the bucket lives in. Ex. `us-west-1`
 
-If you are using the helm chart, these values can be passed via [`values.yaml`](https://github.com/nomad-xyz/nomad-monorepo/blob/main/rust/helm/nomad-agent/values.yaml#L147-L149) like so: 
+If you are using the helm chart, these values can be passed via [`values.yaml`](https://github.com/nomad-xyz/nomad-monorepo/blob/main/rust/helm/nomad-agent/values.yaml#L147-L149) like so:
 
 ```
-processor: 
+processor:
 ...
-  s3Proofs: 
+  s3Proofs:
     bucket: nomadxyz-development-proofs
     region: us-west-1
 ```
