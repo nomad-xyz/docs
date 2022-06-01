@@ -75,5 +75,5 @@ UnenrollReplica:
 
 OwnerUnenrollReplica:
 
-- Cheaper version of normal `unenrollReplica`
+- Cheaper version of normal `unenrollReplica` without signature check
 - Use same estimate of `120k`
