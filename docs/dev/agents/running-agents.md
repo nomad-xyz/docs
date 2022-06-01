@@ -100,6 +100,9 @@ MOONBEAM_RPCSTYLE=ethereum
 ETHEREUM_CONNECTION_URL=https://main-light.eth.linkpool.io/
 MOONBEAM_CONNECTION_URL=https://rpc.api.moonbeam.network
 
+# we will default to local transaction signing/submission
+DEFAULT_SUBMITTER_TYPE=local
+
 # can provide tx signer as hex key (for ethereum) or aws key (for moonbeam)
 # again, default tx signer is overriden by network-specifics
 DEFAULT_TXSIGNER_KEY=0x1111111111111111111111111111111111111111111111111111111111111111
@@ -120,9 +123,15 @@ Once you have populated a .env file, running an agent is as simple as running th
 
 This will build the codebase and run the specified `<AGENT>` binary (updater, relayer, processor, or watcher) using the provided environment variables.
 
+## Agents Release Process
+
+Our release process follows a monthly cadence. We follow [Semantic Versioning](https://semver.org/), where breaking changes constitute changes that break agent configuration compatibility.
+
+We manage releases through GitHub. You can find new per-agent releases [here](https://github.com/nomad-xyz/rust/releases).
+
 ## Production Builds
 
-It is important when making changes to the Rust codebase, to ensure the Docker build used in production environments still works. You can check this automatically in CI as it is built on every PR ([see docker workflow here](https://github.com/nomad-xyz/rust/blob/main/.github/workflows/docker.yml)), however you can check it much faster usually by attempting to build it locally.
+When making changes to the Rust codebase, it is important to ensure the Docker build used in production environments still works. You can check this automatically in CI as it is built on every PR ([see docker workflow here](https://github.com/nomad-xyz/rust/blob/main/.github/workflows/docker.yml)), however you can check it much faster usually by attempting to build it locally.
 
 You can build the docker image by running the following script in the `rust` directory:
 
