@@ -21,10 +21,10 @@ There are 4 production agent roles, with an optional additional agent that is on
 - **Updater**
   - The `Updater` is the most important Agent in regards to *Liveness*. 
   - The `Updater` issues attestations of merkle root transitions and is bonded to disincentivize fraud.
-  - [Link to Updater Docs](#TODO)
+  - [Link to Updater Docs](./agent-updater.md)
 - **Relayer**
   - Relays root transitions from home to replica(s)
-  - [Link to Relayer Docs](#TODO) 
+  - [Link to Relayer Docs](./agent-relayer.md)
 - **Processor** 
   - The `Processor` is entirely optional, however it implements the property of *subsidized channels*. The `Processor` polls for messages that have reached the expiration of their fraud proof window, and claims them on behalf of the user, obviating the need for the user to do so on their own or pay the required gas. 
   - The `Processor` can be tuned to look for a subset of messages to process, such that it can be deployed by a particuar xApp operator who would like to subsidize transactions on behalf of the users of their xApp *exclusively*. 
