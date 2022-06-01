@@ -25,7 +25,7 @@ The watcher is a crucial component of the Nomad security model. Watchers help se
 
 **Step 1: Provision Watcher Key**
 
-The watcher attestation key is used to sign attestations that fraud occurred. Every cross-chain app will enroll a set of watcher attestation addresses. If the app receives an attestation of fraud from an enrolled watcher, the app will disconnect from the messaging channel, eliminating the chance of fraud.
+The watcher attestation key is used to sign attestations that fraud occurred. Every cross-chain app will enroll a set of watcher attestation addresses. If the app receives an attestation of fraud from an enrolled watcher, the app will disconnect from the messaging channel, eliminating the impact of a fraudulent update.
 
 The operator must provision a key for the application to enroll. Agents accept either raw hex keys or AWS KMS keys.
 
