@@ -6,8 +6,8 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "docs:build": "docusaurus build --out-dir ./dist",
-    "build": "docusaurus build --out-dir ./dist",
+    "docs:build": "docusaurus build --out-dir ./docs/.vitepress/dist",
+    "build": "docusaurus build ",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
