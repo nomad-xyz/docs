@@ -6,7 +6,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build:docs": "yarn build",
+    "build:docs": "docusaurus build --out-dir ./dist",
     "build": "docusaurus build --out-dir ./dist",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
