@@ -1,17 +1,56 @@
 {
-  "name": "docs",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "nomad-learn",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Odysseas.eth",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve --port 8000 docs"
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build --out-dir ./dist",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids"
   },
-  "author": "Erin Hales",
-  "license": "Apache 2.0",
-  "homepage": "https://github.com/nomad-xyz/nomad-monorepo",
   "dependencies": {
-    "vitepress": "^0.20.1"
+    "@docusaurus/core": "v2.0.0-beta.21",
+    "@docusaurus/preset-classic": "v2.0.0-beta.21",
+    "@mdx-js/react": "^1.6.21",
+    "@tailwindcss/typography": "0.4.0",
+    "clsx": "^1.1.1",
+    "docusaurus-tailwindcss-loader": "file:plugins/docusaurus-tailwindcss-loader",
+    "dotenv": "^8.2.0",
+    "postcss": "^8.4.14",
+    "postcss-import": "^12.0.0",
+    "postcss-nesting": "^8.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-inlinesvg": "^2.2.2",
+    "react-player": "^2.10.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "mdx-loader": "^3.0.2",
+    "postcss-loader": "^5.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^2.2.2"
+  },
+  "resolutions": {
+    "trim": "^0.0.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

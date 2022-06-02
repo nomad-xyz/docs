@@ -1,8 +1,0 @@
-:root {
-  --c-brand: #4b7bec;
-  --c-brand-light: #5b8bfc;
-}
-
-.container {
-  max-width: 60rem !important;
-}
