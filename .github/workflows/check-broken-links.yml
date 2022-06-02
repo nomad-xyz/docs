@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 17 * * *'
 env:
-  WEBSITE_URL: "https://learn.nomad.xyz/"
+  WEBSITE_URL: "https://docs.nomad.xyz/"
   ISSUE_TEMPLATE: ".github/workflows/check-broken-links.md"
 
 jobs:
