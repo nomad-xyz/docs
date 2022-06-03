@@ -23,17 +23,17 @@ module.exports = {
             {
               type: 'doc',
               id: 'overview/nomad-vs-the-world',
-              label: 'Nomad\'s design vs others'
+              label: 'Nomad\'s Design'
             }],
         },
       {
           type: 'category',
-          label: 'Nomad Protocol',
+          label: 'Protocol',
           items: [
             {
               type: 'doc',
               id: 'protocol/overview',
-              label: 'Overview of the Protocol',
+              label: 'Overview',
             },
             {
               type: 'doc',
@@ -43,17 +43,17 @@ module.exports = {
             {
               type: 'doc',
               id: 'protocol/security',
-              label: 'Nomad\'s Security',
+              label: 'Security',
             },
             {
               type: 'doc',
               id: 'protocol/governance',
-              label: 'Nomad\'s protocol governance',
+              label: 'Governance',
             },
             {
               type: 'doc',
               id: 'protocol/agents',
-              label: 'Offline Agents',
+              label: 'Agents',
             }
           ],
         },
@@ -64,7 +64,7 @@ module.exports = {
             {
               type: 'doc',
               id: 'token-bridge/overview',
-              label: 'What is the token bridge',
+              label: 'Overview',
             },
             {
               type: 'doc',
@@ -80,12 +80,12 @@ module.exports = {
             {
               type: 'doc',
               id: 'build/overview',
-              label: 'What is the token bridge',
+              label: 'Overview',
             },
             {
               type: 'doc',
               id: 'build/checklist',
-              label: 'Everything you need to do',
+              label: 'Checklist',
             },
             {
               type: 'doc',
@@ -95,48 +95,48 @@ module.exports = {
             {
               type: 'doc',
               id: 'build/smart-contracts',
-              label: 'Interact with the Smart Contracts',
+              label: 'Smart Contracts',
             },
             {
               type: 'doc',
               id: 'build/agents',
-              label: 'Interact with the Nomad Agents',
+              label: 'Agents',
             },
             {
               type: 'doc',
               id: 'build/sdk',
-              label: 'Nomad SDK',
+              label: 'SDK',
             },
           ],
         },
       {
           type: 'category',
-          label: 'Operate Nomad Agents',
+          label: 'Operate Agents',
           items: [
             {
               type: 'doc',
               id: 'agents/overview',
-              label: 'Running Agents overview',
+              label: 'Overview',
             },
             {
               type: 'doc',
               id: 'agents/watcher',
-              label: 'Run a Watcher',
+              label: 'Watcher',
             },
             {
               type: 'doc',
               id: 'agents/processor',
-              label: 'Run a Processor',
+              label: 'Processor',
             },
             {
               type: 'doc',
               id: 'agents/relayer',
-              label: 'Run a Relayer',
+              label: 'Relayer',
             },
             {
               type: 'doc',
               id: 'agents/updater',
-              label: 'Run a Relayer',
+              label: 'Updater',
             },
           ],
         },{
@@ -146,17 +146,17 @@ module.exports = {
             {
               type: 'doc',
               id: 'resources/faq',
-              label: 'Nomad FAQ',
+              label: 'FAQ',
             },
             {
               type: 'doc',
               id: 'resources/audits',
-              label: 'Nomad Protocol Audit Reports',
+              label: 'Audit',
             },
             {
               type: 'doc',
               id: 'resources/deployed-contracts',
-              label: 'Deployed Smart Contracts',
+              label: 'Deployed Addresses',
             }]}
 
 
