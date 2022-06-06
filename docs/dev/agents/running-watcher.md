@@ -46,7 +46,7 @@ All Nomad agents produce logs and metrics. It is up to the agent operator how th
 
 **Step 7**
 
-In order to run a watcher, you must configure the watcher's environment to receive the information from steps 1-5. See our [guide on running agents](../RUNNING-AGENTS.md) for more info on configuration and running the agent.
+In order to run a watcher, you must configure the watcher's environment to receive the information from steps 1-5. See our [guide on running agents](./running-agents.md) for more info on configuration and running the agent.
 
 ## Watcher Transaction Signer Funding
 
