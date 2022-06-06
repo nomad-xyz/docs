@@ -1,13 +1,8 @@
----
-title: Running a Watcher
-lang: en-US
----
-
 # Running a Watcher
 
 ## Overview
 
-The watcher is a crucial component of the Nomad security model. Watchers help secure the messaging channels and prevent fraud. [insert more info or link to info on watcher protocol benefits @pranay @odysseas]
+The watcher is a crucial component of the Nomad security model. Watchers secure applications built on Nomad by observing the updater's attestations on the home contract. In the case of any malicious or faulty attestations, the watcher will disconnect its given application from the underlying messaging channel, eliminating the impact of fraud on that app.
 
 ## Steps to Running a Watcher
 
@@ -25,7 +20,7 @@ The watcher is a crucial component of the Nomad security model. Watchers help se
 
 **Step 1: Provision Watcher Key**
 
-The watcher attestation key is used to sign attestations that fraud occurred. Every cross-chain app will enroll a set of watcher attestation addresses. If the app receives an attestation of fraud from an enrolled watcher, the app will disconnect from the messaging channel, eliminating the impact of a fraudulent update.
+The watcher attestation key is used to sign attestations that fraud occurred. Every cross-chain app will enroll a set of watcher attestation addresses. If the app receives an attestation of fraud from an enrolled watcher, the app will disconnect from the messaging channel.
 
 The operator must provision a key for the application to enroll. Agents accept either raw hex keys or AWS KMS keys.
 
@@ -51,18 +46,30 @@ All Nomad agents produce logs and metrics. It is up to the agent operator how th
 
 **Step 7**
 
-In order to run a watcher, you must configure the watcher's environment to receive the information from steps 1-5. See our [guide on running agents](./running-agents.md) for more info on configuration and running the agent.
+In order to run a watcher, you must configure the watcher's environment to receive the information from steps 1-5. See our [guide on running agents](../RUNNING-AGENTS.md) for more info on configuration and running the agent.
 
 ## Watcher Transaction Signer Funding
 
 | Chain        | Funding Amount |
 | ------------ | -------------- |
-| Ethereum     | 2 ETH          |
+| Ethereum     | 3 ETH          |
 | Moonbeam     | 5 GLMR         |
 | Milkomeda C1 | 5 milkADA      |
 | Evmos        | 5 EVMOS        |
 | xDai         | 5 xDAI         |
-| Avalanche    | 3 AVAX         |
+| Avalanche    | 4 AVAX         |
 | Polygon      | 5 MATIC        |
 | Arbitrum     | TBD            |
 | Optimism     | TBD            |
+
+<br>
+
+**Reasoning for Funding Amounts**
+
+The highest daily average gas price on Ethereum to-date is ~710 gwei. A watcher `unenrollReplica` transaction is ~120k gas while a `doubleUpdate` transaction is ~200k gas. If we 10x the highest daily average gas price, we get 7100 gwei. This means that calling `unenrollReplica` will cost 0.852 ETH and calling `doubleUpdate` will cost 1.42 ETH.
+
+unenrollReplica: (710 x 10 x 120,000) / 1e9 = 0.852 ETH
+
+doubleUpdate: (710 x 10 x 200,000) / 1e9 = 1.42 ETH
+
+A minimum of 3 ETH worth of funds per watcher transaction signer is recommended. For networks outside of Ethereum, the funding amount is inflated due to the fact that the dollar cost of funds is much cheaper on other chains.
