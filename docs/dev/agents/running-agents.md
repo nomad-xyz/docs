@@ -84,62 +84,6 @@ Note that default values are only used if a network-specific value is not provid
 AWS Keys:
 Note that the AWS `key_id` field can be a key id, key name, alias name, or alias ARN, as documented in the [Rusoto KMS docs](https://docs.rs/rusoto_kms/latest/rusoto_kms/struct.GetPublicKeyRequest.html#structfield.key_id). For more information on configuring AWS credentials, please refer to the [Rusoto AWS credentials usage documentation](https://github.com/rusoto/rusoto/blob/master/AWS-CREDENTIALS.md#credentials).
 
-Agent Configuration Overrides:
-Agents also have configuration settings that can be optionally overridden by environment variables. If present, these variables will override values given by configuration files.
-
-Shared by all agents:
-
-- **Interval**
-  - `{agent}_INTERVAL`: The frequency at which an agent runs in milliseconds
-
-Kathy:
-
-- **Chat Config**
-  - Only one of the following should be set:
-  - Message and recipient:
-    - Hex key:
-      - `KATHY_CHAT_RECIPIENT`
-      - 0x-prefixed recipient address
-    - String:
-      - `KATHY_CHAT_MESSAGE`
-      - A message string
-  - Message list:
-    - Quoted CSV
-      - `KATHY_CHAT_MESSAGES`
-      - A quoted, comma separated list of message strings
-  - Random messages:
-    - Integer
-      - `KATHY_CHAT_RANDOM`
-      - An integer value for the number of random messages to send
-
-Processor:
-
-- **Allowed Senders**
-  - A list of allowed message senders
-  - Hex key CSV:
-    - `PROCESSOR_ALLOWED`
-    - A comma separated list of 0x-prefixed sender addresses
-- **Denied Senders**
-  - A list of denied message senders
-  - Hex key CSV:
-    - `PROCESSOR_DENIED`
-    - A comma separated list of 0x-prefixed sender addresses
-- **Subsidized Remotes**
-  - A list of subsidized networks
-  - CSV:
-    - `PROCESSOR_SUBSIDIZED_REMOTES`
-    - A comma separated list of network names
-- **S3 Bucket**
-  - An AWS S3 bucket to use for this processor
-  - AWS Bucket:
-    - `PROCESSOR_S3_BUCKET`
-    - AWS bucket id
-  - AWS Region:
-    - `PROCESSOR_S3_REGION`
-    - AWS region id
-
-<br>
-
 For more info on our different run environments and key configuration/provisioning, please refer to our [agents operations page](./agent-operations.md).
 
 You can see an example .env file below:
@@ -174,6 +118,50 @@ ATTESTATION_SIGNER_ID=dummy_id
 ```
 
 If you would like to configure an agent to run against all connected networks (against all replicas the home is connected to), see [this example](https://github.com/nomad-xyz/rust/blob/main/fixtures/env.test). For more examples of .env files, see our [test fixtures folder](https://github.com/nomad-xyz/rust/tree/main/fixtures).
+
+<br>
+
+**Agent Configuration Overrides (optional)**
+
+Agents also have configuration settings that can be optionally overridden by environment variables. If present, these variables will override values given by configuration files.
+
+- **All Agents**
+  - Agent interval:
+    - `{agent}_INTERVAL`
+    - The frequency at which an agent runs its loop in milliseconds
+- **Kathy**
+  - Chat config:
+    - Recipient:
+      - `KATHY_CHAT_RECIPIENT`
+      - 0x-prefixed recipient address
+    - Message:
+      - `KATHY_CHAT_MESSAGE`
+      - A message string
+    - Message list:
+      - `KATHY_CHAT_MESSAGES`
+      - A quoted, comma separated list of message strings
+    - Random messages:
+      - `KATHY_CHAT_RANDOM`
+      - An integer value for the number of random messages to send
+- **Processor**
+  - Allowed senders:
+    - `PROCESSOR_ALLOWED`
+    - A comma separated list of 0x-prefixed sender addresses
+  - Denied senders:
+    - `PROCESSOR_DENIED`
+    - A comma separated list of 0x-prefixed sender addresses
+  - Subsidized remotes:
+    - `PROCESSOR_SUBSIDIZED_REMOTES`
+    - A comma separated list of network names
+  - S3 Bucket:
+    - AWS Bucket:
+      - `PROCESSOR_S3_BUCKET`
+      - AWS bucket id
+    - AWS Region:
+      - `PROCESSOR_S3_REGION`
+      - AWS region id
+
+For an example of agent configuration overrides, please see our [example overrides env file](https://github.com/nomad-xyz/rust/blob/main/fixtures/env.test-agents).
 
 ## Running Agent
 
