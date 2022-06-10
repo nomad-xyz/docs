@@ -119,6 +119,50 @@ ATTESTATION_SIGNER_ID=dummy_id
 
 If you would like to configure an agent to run against all connected networks (against all replicas the home is connected to), see [this example](https://github.com/nomad-xyz/rust/blob/main/fixtures/env.test). For more examples of .env files, see our [test fixtures folder](https://github.com/nomad-xyz/rust/tree/main/fixtures).
 
+<br>
+
+**Agent Configuration Overrides (optional)**
+
+Agents also have configuration settings that can be optionally overridden by environment variables. If present, these variables will override values given by configuration files.
+
+- **All Agents**
+  - Agent interval:
+    - `{agent}_INTERVAL`
+    - The frequency at which an agent runs its loop in milliseconds
+- **Kathy**
+  - Chat config:
+    - Recipient:
+      - `KATHY_CHAT_RECIPIENT`
+      - 0x-prefixed recipient address
+    - Message:
+      - `KATHY_CHAT_MESSAGE`
+      - A message string
+    - Message list:
+      - `KATHY_CHAT_MESSAGES`
+      - A quoted, comma separated list of message strings
+    - Random messages:
+      - `KATHY_CHAT_RANDOM`
+      - An integer value for the number of random messages to send
+- **Processor**
+  - Allowed senders:
+    - `PROCESSOR_ALLOWED`
+    - A comma separated list of 0x-prefixed sender addresses
+  - Denied senders:
+    - `PROCESSOR_DENIED`
+    - A comma separated list of 0x-prefixed sender addresses
+  - Subsidized remotes:
+    - `PROCESSOR_SUBSIDIZED_REMOTES`
+    - A comma separated list of network names
+  - S3 Bucket:
+    - AWS Bucket:
+      - `PROCESSOR_S3_BUCKET`
+      - AWS bucket id
+    - AWS Region:
+      - `PROCESSOR_S3_REGION`
+      - AWS region id
+
+For an example of agent configuration overrides, please see our [example overrides env file](https://github.com/nomad-xyz/rust/blob/main/fixtures/env.test-agents).
+
 ## Running Agent
 
 Once you have populated a .env file, running an agent is as simple as running the following command:
