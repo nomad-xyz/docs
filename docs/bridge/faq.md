@@ -85,18 +85,6 @@ When you bridge with Connext, you'll need to manually claim your tokens after th
 When you bridge back to Ethereum, you'll need to process the transaction manually to disperse your funds at the end. You can do this by going to:
 `https://app.nomad.xyz/tx/nomad/<origin-chain>/<tx-id>`
 
-### Why is gas estimate so high to get my funds on Ethereum?
-
-You need to submit a higher buffer for gas because the function that needs to be called to disperse funds, `proveAndProcess`, is permissionless. If there was no gas buffer, anyone could cancel your transaction by processing it with too-low gas. So the protocol specifies a gas buffer in order to submit the transaction, but in this case, the majority of the gas is not actually used.
-
-**In actuality, only about 1/5 of the estimated gas is used.**
-
-Here are a few transactions you can look at to see what the actual cost of the transaction was:
-* [Transaction 1](https://etherscan.io/tx/0x60e20861d22a6931d9731e0c00dcd6984857140c86cf83f94be888e7af5bab91)
-* [Transaction 2](https://etherscan.io/tx/0x73bae115015885371b295daad8225493571b6963f550cd1d7b009c00921b9b91)
-
-You can also look through the [contract](https://etherscan.io/address/0x049b51e531fd8f90da6d92ea83dc4125002f20ef) for the transactions that called the `Prove And Process` method for further verification.
-
 ## General
 
 ### What is Nomad's security model? How does it compare to other well-known models, such as header verification?
