@@ -16,4 +16,3 @@ lang: en-US
   <h3 class="download__text">Download</h3>
   <img src="/download.svg"/>
 </a>
-
